@@ -1,0 +1,138 @@
+@use "sass:map";
+@import "../../Styles/Pages/theme.scss";
+
+.header_top
+{
+    background:map.get($theme_color, "main") ;
+   
+}
+.header__right {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    a {
+        color: #fff;
+    }
+}
+.header__left {
+    justify-content: start;
+    display: flex;
+    align-items: center;
+ 
+
+    ul {
+        padding-left: 0;
+        display: flex;
+        column-gap: 50px;
+        align-items: center;
+    
+    }
+
+    a{
+        display: flex;
+        align-items: center;
+        color: #fff;
+        font-size: 17px;
+  
+    }
+
+
+
+   
+}
+
+
+.banner {
+
+    background-image: url(../../assets/images/hero2-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    .container {
+        background-color: transparent;
+        padding: 80px;
+        
+    }
+
+    
+
+}
+
+.banner__left {
+    padding: 30px 0 30px;
+    .sec_sub-title {
+        color: map.get($theme_color, "main") ;
+        font-weight: 600;
+        font-size: 24px;
+        margin-bottom: 15px;
+        text-transform: capitalize;
+
+    }
+    .sec_title {
+        margin-top: 15px;
+        font-weight: 700;
+        font-size: 64px;
+        color: #fff;
+        text-transform: uppercase;
+        line-height: 89px;
+    }
+
+    .sec_text {
+        padding-right: 300px;
+        color: #fff;
+        line-height: 26px;
+        margin-top: -40px;
+        margin-bottom: 50px;
+    }
+
+     .btn_style1{
+        background: map.get($theme_color, "main") ;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 10px 30px;
+        border-radius: 10px;
+     }
+     
+
+    }
+
+.banner__right {
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  
+
+    .form_search_trip {
+        background-color: #fff;
+        border-color: map.get($theme_color, "main");
+        border-style: solid;
+        border-width: 4px;
+        border-radius: 5px;
+      
+    }
+
+    .select__field {
+        padding: 25px 20px;
+    }
+
+    .input__select {
+        padding: 15px 15px 20px;
+        width: 500px;
+    }
+
+    .btn_wrapper {
+        padding: 25px 20px;
+
+        .btn_style1{
+            padding: 10px 0;
+            background: map.get($theme_color, "main") ;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 10px;
+            width: 500px;
+         }
+    }
+   
+
+}

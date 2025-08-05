@@ -1,0 +1,40 @@
+@use "sass:map";
+@import "theme.scss";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap');
+
+
+html,
+body {
+    margin: 0;
+} 
+
+* {
+    font-family: Roboto;
+}
+
+.container { 
+    max-width: 1500px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: map.get($theme_color, "main");
+    margin: auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
