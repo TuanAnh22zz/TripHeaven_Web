@@ -117,13 +117,13 @@
     }
 
     .list_intro {
-       
+        margin-top: -30px;
         display:flex;
         column-gap: 100px;
     
         ul {
             padding-left: 12px;
-            line-height: px;
+            line-height: 25px;
       
         }
         li::marker {
@@ -133,6 +133,7 @@
 
     }
     .btn_wrapper {
+        padding-top: 40px;
         margin-top: -30px;
     }
 }
@@ -177,38 +178,187 @@
 
 
 .offer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #1C1C1C;
-}
-.info__offer {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
-    .sec_title {
-        color: #000;
-        font-size: 40px;
-        margin-top: 5px;
+    .row {
+        position: relative;
+        flex-wrap: nowrap;
     }
-    .sec_text {
-        color: #505050;
-        margin-top: -20px;
-        padding-right: 100px ;
+    .container {
+        margin-left: calc(799px - 552px);
+    }
+ 
+    .offer_picture {
+        background-image: url(../../assets/images/visit-left2.png);
+        background-repeat: no-repeat;
+        max-width: 100%;
+        width: 552px;
+        height: 608px;
+     
+    }
+}
+.offer__left {
+    position: relative;
+    z-index: 2;
+    margin: auto;
+    .info__offer {
+        width: 595px;
+        max-width: 595px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 50px;
+        .sec_sub-title{
+            margin-left: 0;
+        }
+        .sec_title {
+            color: #000;
+            font-size: 40px;
+            margin-top: -5px;
+        }
+        .sec_text {
+            color: #505050;
+            margin-top: -40px;
+            padding-right: 100px ;
+            
+        }
+        .btn_wrapper{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn_style1 {
+            background-color:map.get($theme_color, "secondary") !important  ;
+       
+        }
+    
+        .time__countdown {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;   
+            gap: 15px; 
+            margin-bottom: 50px;   
+        }          
+        
+        .circles-container {
+            display: flex;       
+            gap: 40px;           
+        }
+        
+        .circle {
+            width: 80px;
+            height: 80px;
+            background-color: black;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: 700;
+        }
+        
+        
+        .labels-container {
+            display: flex;
+            gap: 40px; 
+        }
+        
+        .label {
+            width: 80px; 
+            text-align: center; 
+            font-size: 14px;
+            color: #666;
+            text-transform: uppercase;
+        }
+    
         
     }
+    
+}
+.offer__right {
+
+        position: relative;
+        z-index: 1;
+        margin-left: -350px;
+     
+        .video {
+            background-image: url(../../assets/images/discount-bg.jpg);
+            height: 640px;
+            width: 950px;
+            max-width: 100%;
+            border-radius: 20px;
+        }
+        .play_btn_style1 {
+            border-radius: 50%;
+            padding: 40px;
+            background-color: map.get($theme_color,"main");
+       
+          
+        }
+        .btn_wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;    
+            padding: 270px 600px;
+
+        }
+      
+
+}
+
+
+.content__feature {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    column-gap: 50px;
+     
+}
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-bottom: 40px;
+}
+.info__feature {
+    background-image: url(../../assets/images/features.png);
+    background-color: map.get($theme_color, "main");
+    text-align: center;
+    padding: 30px;
+    justify-items: center;
+    border-radius: 20px;
+    color: #fff;
+    .featurre__title {
+        font-size: 20px;
+    }
+    .feature__text {
+        line-height: 30px;
+    }
+ 
+
+}
+
+
+.discover {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-image: url(../../assets/images/Untitled-design-e1709281316930.png);
+}
+.discover__left {
+    .sec_sub-title {
+        color: #fff;
+    }
+    .sec_title {
+        font-size: 40px;
+    }
     .btn_style1 {
-        background-color:map.get($theme_color, "secondary") !important  ;
-   
+        background-color: #fff;
+        color: map.get($theme_color,"main");
     }
 }
-
-.info__video {
-    background-image: url(../../assets/images/discount-bg.jpg);
-    margin-top: -300px;
-    margin-right: 0;
-    height: 640px;
-    width: 950px;
-    max-width: 100%;
-}
-
-
-

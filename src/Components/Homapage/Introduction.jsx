@@ -60,7 +60,9 @@ function Introduction() {
                     <h2 className='sec_title'>{introInfo.title}</h2>
                     <p className='sec_text'>{introInfo.text}
                         
-                        <div className='list_intro'>
+                          
+                     </p>
+                     <div className='list_intro'>
                             <ul>
                                 {introText.filter(item => [1, 2, 3 ,4].includes(item.id)).map((item) => (
                                   <IntroItem
@@ -77,8 +79,7 @@ function Introduction() {
                                  />   
                                ))}
                             </ul>
-                    </div>     
-                     </p>
+                    </div>  
                     <div className='btn_wrapper'>
                         <a href="http://">
                             <MaterialButton variant="contained" disableElevation className='muiButton btn_style1'>
