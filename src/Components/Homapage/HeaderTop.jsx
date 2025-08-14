@@ -3,7 +3,7 @@ import { memo } from 'react';
 import MailIcon from '@mui/icons-material/Mail';
 import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
+import LayoutContainer from '../All/LayoutContainer';
 const contactInfo = [
     {
       type: 'email',
@@ -21,20 +21,21 @@ const contactInfo = [
 
   const ContactItem = ({ icon, text, href }) => (
     <li>
-      <a href={href} className="contact_link">
+      <a href={href} className='flex items-center text-white text-[17px]'>
         {icon}
-        <span> {text}</span>
+        <span className='ml-[10px]'> {text}</span>
       </a>
     </li>
   );
 
   function HeaderTop() {
     return (
-      <div className="header_top">
-        <div className="container">
-          <div className="row">
-            <div className="col-6 header__left">
-              <ul>
+      <div className='bg-main text-white'>
+   
+        <LayoutContainer className='!py-[15px]'>
+        <div className="flex items-center">
+            <div className="w-1/2 flex items-center justify-start">
+              <ul className='p-0 flex items-center gap-[50px]'>
                 {contactInfo.map((item) => (
                   <ContactItem
                     key={item.type} 
@@ -45,13 +46,14 @@ const contactInfo = [
                 ))}
               </ul>
             </div>
-            <div className="col-6 header__right">
+            <div className="w-1/2 flex items-center justify-end">
               <a href="#">
                 <AccountCircleIcon fontSize="large" />
               </a>
             </div>
           </div>
-        </div>
+        </LayoutContainer>
+
       </div>
     );
   }

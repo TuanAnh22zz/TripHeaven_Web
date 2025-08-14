@@ -1,17 +1,9 @@
 import { memo } from 'react';
-import HeaderTop from '../../Components/Homapage/HeaderTop'; 
-import Banner from '../../Components/Homapage/Banner'
-import Introduction from '../../Components/Homapage/Introduction';
 import  MaterialButton from '@mui/material/Button'
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import Input from '@mui/joy/Input';
-import RowingIcon from '@mui/icons-material/Rowing';
-import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
-import PaidIcon from '@mui/icons-material/Paid';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-
-
+import LayoutContainer from '../All/LayoutContainer';
+import VideoBackground from '../../assets/images/discount-bg.jpg'
+import OfferPicture from '../../assets/images/visit-left2.png'
 
 
 const offerInfo = {
@@ -62,75 +54,74 @@ const label = [
 
 
 const ClockItem = ({text}) => (
-    <div className="circles-container">
-        <div className="circle">
+    <div className="flex gap-[40px]">
+        <div className="w-[80px] h-[80px] bg-black rounded-[50%] flex items-center justify-center text-white text-[32px] font-[700]">
             {text}
         </div>
     </div>
 )
 const LableItem = ({text}) => (
-    <span className='label'>
+    <span className='w-[80px] text-center text-[14px] text-[#666] uppercase'>
         {text}
     </span>
 )
 
 function Offer () {
     return (
-        <div className="part offer">
-        <div className="offer_picture">        
+        <div className="bg-black flex items-center justify-center">
+        <div className="bg-no-repeat max-w-full w-[552px] h-[608px]" style={{backgroundImage: `url(${OfferPicture})`}}>        
         </div>
-        <div className="container">
+            <LayoutContainer className='w-full'>
+                <div className="relative flex flex-col lg:flex-row items-center">
+                        <div className='relative z-10 w-full max-w-2xl lg:w-auto bg-white p-8 lg:p-12 rounded-2xl shadow-2xl flex-shrink-0'>
+                            <div className='w-[595px] max-w-[595px] bg-white p-[30px] rounded-[20px]'>
+                                <span className='text-main font-[700] text-[24px] '>{offerInfo.sub_title}</span>
+                                <h2 className='text-black font-[700] text-[40px]'>{offerInfo.title}</h2>
+                                <p className='mb-[30px]'>{offerInfo.text}</p>
             
-                <div className="row">
-                    <div className='offer__left'>
-                        <div className='info__offer'>
-                            <span className='sec_sub-title'>{offerInfo.sub_title}</span>
-                            <h2 className='sec_title'>{offerInfo.title}</h2>
-                            <p className='sec_text'>{offerInfo.text}</p>
-        
-                            <div className="time__countdown">
-                            <div className="circles-container">
-                                {clockItem.map((item) => (
-                                    <ClockItem
-                                        key={item.id}
-                                        text={item.text}
-                                    />
-                                ))}
-                            </div>
-
-                                <div className="labels-container">
-                                {label.map((item) => (
-                                        <LableItem
+                                <div className="flex items-center flex-col mt-[50px] gap-[50px] ">
+                                <div className="flex gap-[40px]">
+                                    {clockItem.map((item) => (
+                                        <ClockItem
                                             key={item.id}
                                             text={item.text}
                                         />
-                                ))}
+                                    ))}
+                                </div>
+
+                                    <div className="flex gap-[40px] mt-[-30px] mb-[30px]">
+                                    {label.map((item) => (
+                                            <LableItem
+                                                key={item.id}
+                                                text={item.text}
+                                            />
+                                    ))}
+                                    </div>
+                                </div>
+
+                                <div className='flex items-center justify-center'>
+                                            <a href="http://">
+                                                <MaterialButton variant="contained" disableElevation className='muiButton btn_style1 !bg-secondary'>
+                                                    {offerInfo.buttonText}
+                                                </MaterialButton>
+                                            </a>
+                                    
                                 </div>
                             </div>
-
-                            <div className='btn_wrapper'>
+                        </div>
+                        <div className='w-full mt-8 lg:mt-0 lg:-ml-48'>
+                                <div className="relative flex items-center justify-center h-[480px] lg:h-[640px] max-w-full bg-cover bg-center rounded-2xl" style={{backgroundImage: `url(${VideoBackground})`}}>
+                                    <div className='btn_wrapper'>
                                         <a href="http://">
-                                            <MaterialButton variant="contained" disableElevation className='muiButton btn_style1'>
-                                                {offerInfo.buttonText}
+                                            <MaterialButton variant="contained" disableElevation className='!bg-main !p-[40px] !rounded-[50%]' >
+                                                <PlayArrowIcon fontSize='large'/>
                                             </MaterialButton>
                                         </a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div className='offer__right'>
-                            <div className="video">
-                                <div className='btn_wrapper'>
-                                    <a href="http://">
-                                        <MaterialButton variant="contained" disableElevation className='play_btn_style1' >
-                                            <PlayArrowIcon fontSize='large'/>
-                                        </MaterialButton>
-                                    </a>
-                                 </div>
-                            </div>                 
-                    </div> 
-            </div>
-        </div>
+                                    </div>
+                                </div>                 
+                        </div> 
+                </div>
+            </LayoutContainer>
         </div>
     )
 }

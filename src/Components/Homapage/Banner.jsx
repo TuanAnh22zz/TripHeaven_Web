@@ -7,7 +7,8 @@ import Input from '@mui/joy/Input';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import PaidIcon from '@mui/icons-material/Paid';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-
+import BannerBackgroundImage from '../../assets/images/hero2-bg.jpg'
+import LayoutContainer from '../All/LayoutContainer';
 const bannerInfo = 
     {
         sub_title: 'Khám phá ngay',
@@ -44,9 +45,9 @@ const bannerSearch = [
 
 ]
 const SearchField = ({icon, placeholder}) => (
-    <div className='select__field'>
+    <div className='py-[15px] px-[20px]'>
         <Input
-            className='input__select'
+            className='pt-[15px] pr-[10px] pb-[20px] w-[400px]'
             type={'text'}
             placeholder={placeholder}
             startDecorator={icon}
@@ -56,17 +57,18 @@ const SearchField = ({icon, placeholder}) => (
 )
 function Banner() {
     return (
-        <div className="part banner">
-        <div className="container">
-            <div className="row">
-                <div className="col-6 banner__left">
-                    <div className="info__banner__left">
-                        <span className='sec_sub-title'>{bannerInfo.sub_title}</span>
-                        <h2 className='sec_title'>{bannerInfo.title}</h2>
-                        <p className='sec_text'>{bannerInfo.text} </p>
+        <div className="bg-no-repeat w-full bg-cover bg-center"   style={{ backgroundImage: `url(${BannerBackgroundImage})` }}>
+   
+        <LayoutContainer>
+        <div className="flex flex-wrap">
+                <div className="w-1/2 flex mr-auto">
+                    <div className="">
+                        <span className='font-[700] text-[24px] mb-[15px] text-transparent-[capitalize] text-[#4CAF50] '>{bannerInfo.sub_title}</span>
+                        <h2 className='mt-[15px] font-[700] text-[64px] text-white uppercase '>{bannerInfo.title}</h2>
+                        <p className='text-white leading-[26px] mt-[30px] mb-[40px] pr-[200px]'>{bannerInfo.text} </p>
                         <div className='btn_wrapper'>
                             <a href="http://">
-                                <MaterialButton variant="contained" disableElevation className='muiButton btn_style1'>
+                                <MaterialButton variant="contained" disableElevation className='!rounded-[5px] !bg-main !text-[16px] !font-[700] !py-[8px] !px-[30px] !mt-[10px]'>
                                     {bannerInfo.buttonText}
                                 </MaterialButton>
                             </a>
@@ -75,9 +77,9 @@ function Banner() {
                     </div>
 
                 </div>
-                <div className="col-6 banner__right">
+                <div className="w-1/2 flex justify-end items-center mr-auto">
                     <div className="info__banner__right">
-                        <form action="" className='form_search_trip'>
+                        <form action="" className='bg-white border-main border-solid border-[4px] rounded-[5px]'>
                             {bannerSearch.map((item) => (
                              < SearchField
                                     key={item.id}
@@ -85,9 +87,9 @@ function Banner() {
                                     placeholder={item.placeholder}
                             />
                             ))}
-                        <div className='btn_wrapper'>
+                        <div className='py-[25px] px-[20px]'>
                             <a href="http://">
-                                <MaterialButton variant="contained" disableElevation className=' muiButton btn_style1'>
+                                <MaterialButton variant="contained" disableElevation className='py-[10px] px-[0]rounded-[10px] w-[400px] !bg-main'>
                                     Tìm Ngay
                                 </MaterialButton>
                             </a>
@@ -99,7 +101,8 @@ function Banner() {
                    
                 </div>
             </div>
-        </div>
+        </LayoutContainer>
+
     </div>
     );
 
