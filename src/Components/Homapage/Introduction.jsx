@@ -62,40 +62,40 @@ function Introduction() {
         <LayoutContainer>
         <div className="flex flex-wrap">
                     <div className="w-1/2 flex items-center">
-                    <div className='info__intro'>
-                        <span className='font-[700] text-[24px] mb-[15px] text-transparent-[capitalize] text-main'>{introInfo.sub_title}</span>
-                            <h2 className='mt-[15px] font-[700] text-[40px] uppercase text-black'>{introInfo.title}</h2>
-                            <p className='text-black leading-[26px] mt-[30px] mb-[40px] pr-[200px]'>{introInfo.text}
-                                
-                                
-                            </p>
-                            <div className='flex gap-[100px] mb-[40px]'>
-                                    <ul className='pl-[12px] leading-[30px] '>
-                                        {introText.filter(item => [1, 2, 3 ,4].includes(item.id)).map((item) => (
-                                        <IntroItem
+                        <div className='info__intro'>
+                            <span className='font-[700] text-[24px] mb-[15px] text-transparent-[capitalize] text-main'>{introInfo.sub_title}</span>
+                                <h2 className='mt-[15px] font-[700] text-[40px] uppercase text-black'>{introInfo.title}</h2>
+                                <p className='text-black leading-[26px] mt-[30px] mb-[40px] pr-[200px]'>{introInfo.text}
+                                    
+                                    
+                                </p>
+                                <div className='flex gap-[100px] mb-[40px]'>
+                                        <ul className='pl-[12px] leading-[30px] '>
+                                            {introText.filter(item => [1, 2, 3 ,4].includes(item.id)).map((item) => (
+                                            <IntroItem
+                                                key={item.id}
+                                                text={item.text}
+                                            />  
+                                            ))}
+                                        </ul>
+                                        <ul className='leading-[30px]'>
+                                        {introText.filter(item => [5, 6, 7].includes(item.id)).map((item) => (
+                                            <IntroItem
                                             key={item.id}
                                             text={item.text}
-                                        />  
+                                            />   
                                         ))}
-                                    </ul>
-                                    <ul className='leading-[30px]'>
-                                    {introText.filter(item => [5, 6, 7].includes(item.id)).map((item) => (
-                                        <IntroItem
-                                        key={item.id}
-                                        text={item.text}
-                                        />   
-                                    ))}
-                                    </ul>
-                            </div>  
-                            <div className='btn_wrapper'>
-                                <a href="http://">
-                                    <Button>
-                                       {introInfo.buttonText}
-                                    </Button>
-                                </a>
-                        
-                            </div>
-                    </div>
+                                        </ul>
+                                </div>  
+                                <div className='btn_wrapper'>
+                                    <a href="http://">
+                                        <Button>
+                                        {introInfo.buttonText}
+                                        </Button>
+                                    </a>
+                            
+                                </div>
+                        </div>
                 
                     </div>
                     <div className="w-1/2 flex justify-end items-center">

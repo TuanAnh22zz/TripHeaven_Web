@@ -3,7 +3,7 @@ import { memo } from 'react';
 import MailIcon from '@mui/icons-material/Mail';
 import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import LayoutContainer from '../All/LayoutContainer';
+import LayoutContainer from './LayoutContainer';
 const contactInfo = [
     {
       type: 'email',

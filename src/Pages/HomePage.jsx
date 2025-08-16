@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import HeaderTop from '../Components/Homapage/HeaderTop'; 
+import HeaderTop from '../Components/All/HeaderTop';
 import Banner from '../Components/Homapage/Banner'
 import Introduction from '../Components/Homapage/Introduction';
 import Offer from '../Components/Homapage/Offer';
