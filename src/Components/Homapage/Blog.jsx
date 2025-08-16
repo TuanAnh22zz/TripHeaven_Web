@@ -1,6 +1,8 @@
 import { memo } from 'react';
 import  MaterialButton from '@mui/material/Button'
 import LayoutContainer from '../../Components/All/LayoutContainer';
+import Button from '../All/Button';
+
 import React, { useRef, useState } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -89,9 +91,6 @@ function Blog() {
                     slidesPerView={1}
                     spaceBetween={30}
                     loop={true}
-                    pagination={{
-                    clickable: true,
-                    }}
                     navigation={true}
                     modules={[Pagination, Navigation]}
                     className="mySwiper"
@@ -127,6 +126,11 @@ function Blog() {
                 
                     
                 </Swiper>
+                </div>
+                <div className='flex items-center justify-center '>
+                    <Button>
+                        Xem thêm
+                    </Button>
                 </div>
                 
         

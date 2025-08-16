@@ -2,6 +2,7 @@ import  MaterialButton from '@mui/material/Button'
 import { memo } from 'react';
 import IntroductionBackground from '../../assets/images/plane2-2zxczxc.png'
 import LayoutContainer from '../All/LayoutContainer';
+import Button from '../All/Button';
 import Image1 from '../../assets/images/about-1-1.jpg'
 import Image2 from '../../assets/images/about-1-2.jpg'
 import Image3 from '../../assets/images/about-1-3.jpg'
@@ -88,9 +89,9 @@ function Introduction() {
                             </div>  
                             <div className='btn_wrapper'>
                                 <a href="http://">
-                                    <MaterialButton variant="contained" disableElevation className='!rounded-[5px] !bg-main !text-[16px] !font-[700] !py-[8px] !px-[30px] !mt-[10px]'>
-                                        {introInfo.buttonText}
-                                    </MaterialButton>
+                                    <Button>
+                                       {introInfo.buttonText}
+                                    </Button>
                                 </a>
                         
                             </div>

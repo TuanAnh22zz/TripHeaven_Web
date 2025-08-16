@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import RowingIcon from '@mui/icons-material/Rowing';
-
+import Button from '../All/Button';
 import  MaterialButton from '@mui/material/Button'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Input from '@mui/joy/Input';
@@ -47,7 +47,7 @@ const bannerSearch = [
 const SearchField = ({icon, placeholder}) => (
     <div className='py-[15px] px-[20px]'>
         <Input
-            className='pt-[15px] pr-[10px] pb-[20px] w-[400px]'
+            className='pt-[20px] pr-[10px] pb-[20px] w-[400px]'
             type={'text'}
             placeholder={placeholder}
             startDecorator={icon}
@@ -68,9 +68,9 @@ function Banner() {
                         <p className='text-white leading-[26px] mt-[30px] mb-[40px] pr-[200px]'>{bannerInfo.text} </p>
                         <div className='btn_wrapper'>
                             <a href="http://">
-                                <MaterialButton variant="contained" disableElevation className='!rounded-[5px] !bg-main !text-[16px] !font-[700] !py-[8px] !px-[30px] !mt-[10px]'>
-                                    {bannerInfo.buttonText}
-                                </MaterialButton>
+                            <Button>
+                                  {bannerInfo.buttonText}
+                             </Button>
                             </a>
                     
                         </div>
@@ -89,7 +89,7 @@ function Banner() {
                             ))}
                         <div className='py-[25px] px-[20px]'>
                             <a href="http://">
-                                <MaterialButton variant="contained" disableElevation className='py-[10px] px-[0]rounded-[10px] w-[400px] !bg-main'>
+                                <MaterialButton variant="contained" disableElevation className='py-[15px] px-[0]rounded-[10px] w-[400px] !bg-main'>
                                     Tìm Ngay
                                 </MaterialButton>
                             </a>

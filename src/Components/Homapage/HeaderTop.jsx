@@ -8,13 +8,13 @@ const contactInfo = [
     {
       type: 'email',
       icon: <MailIcon fontSize="large" />,
-      text: 'nfo@themona.global',
+      text: 'nguyentuananh22042004@gmail.com',
       href: 'mailto:nfo@themona.global', 
     },
     {
       type: 'phone',
       icon: <PermPhoneMsgIcon fontSize="large" />,
-      text: '(+84) 0313728397',
+      text: '(+84) 784223858',
       href: 'tel:+84313728397', 
     },
   ];

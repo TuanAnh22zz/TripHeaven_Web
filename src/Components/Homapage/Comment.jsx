@@ -1,19 +1,7 @@
 import { memo } from 'react';
-import HeaderTop from '../../Components/Homapage/HeaderTop'; 
-import Banner from '../../Components/Homapage/Banner'
-import Introduction from '../../Components/Homapage/Introduction';
-import Offer from '../../Components/Homapage/Offer';
-import Feature from '../../Components/Homapage/Feature';
-import Discover from '../../Components/Homapage/Discover';
-import Header from '../../Components/All/Header';
-import Destination from '../../Components/Homapage/Destination';
-import Blog from '../../Components/Homapage/Blog';
-
-
 import LayoutContainer from '../../Components/All/LayoutContainer';
 import React, { useRef, useState } from 'react';
 import CommentBackground from '../../assets/images/testimonial-bg-2.jpg'
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
