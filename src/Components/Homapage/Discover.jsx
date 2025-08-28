@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import  MaterialButton from '@mui/material/Button'
 import Image0ffer from "../../assets/images/offer-1-1.png"
 import DiscoverBackground from '../../assets/images/Untitled-design-e1709281316930.png'
 import LayoutContainer from '../All/LayoutContainer';
+
 
 
 const discoverInfo = 
@@ -26,9 +26,10 @@ function Discover () {
                         <p className='leading-[26px] mt-[30px] mb-[40px] pr-[200px] text-white'> {discoverInfo.text}</p>
                         <div className='btn_wrapper'>
                             <a href="http://">
-                                <MaterialButton variant="contained" disableElevation className='!rounded-[5px] !bg-white !text-main !text-[16px] !font-[700] !py-[8px] !px-[30px] !mt-[10px]'>
+                      
+                                <button className="!bg-white py-[10px] px-[30px] rounded-[15px] font-[700] text-main text-[16px]">
                                     {discoverInfo.button_text}
-                                </MaterialButton>
+                                </button>
                             </a>
                     
                         </div>

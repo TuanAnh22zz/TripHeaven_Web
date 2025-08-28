@@ -1,25 +1,20 @@
 import { memo } from 'react';
 
-import Input from '@mui/joy/Input';
-import CopyrightIcon from '@mui/icons-material/Copyright';
+
 import LogoImage1 from '../../assets/images/2-e1709277174419.png'
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import EmailIcon from '@mui/icons-material/Email';
-import LocationPinIcon from '@mui/icons-material/LocationPin';
-import PhoneIcon from '@mui/icons-material/Phone';
 import ImageBlog1 from '../../assets/images/6-2-342x252.jpg';
-import LayoutContainer from '../../Components/All/LayoutContainer';
-import Button from '../../Components/All/Button'
+import LayoutContainer from './LayoutContainer';
 import React, { useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import IconHeadSet from '../../assets/images/icons8-headset-80.png'
 import IconSend from '../../assets/images/icons8-send-80.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faLocationDot, faEnvelope , faPhone, faAngleDown} from '@fortawesome/free-solid-svg-icons'
+import {faFacebookF, faInstagram, faGithub, faPinterest} from "@fortawesome/free-brands-svg-icons"
+
+
 
 
 
@@ -45,8 +40,7 @@ function Footer () {
                             <div className='w-1/4'>
                                   
                                         <img src={IconSend} alt="" className='w-[80px] h-[80px] max-w-full' />
-                                  
-                                
+                            
                             </div>
                              <div className='w-3/4'>
                                
@@ -58,20 +52,11 @@ function Footer () {
 
                         <div className='flex items-center gap-4 justify-end'>
                             <div>
-                            <Input
-                                sx={{
-                                    backgroundColor: 'black',
-                                    border: 'solid',
-                                    borderWidth:'2px',
-                                    color:'white',
-                                    
-                                }}
-                                className='pt-[15px] pr-[10px] pb-[15px] w-[350px] !border-main'
-                                type={'text'}
-                                placeholder='Nhập Email'
-                                endDecorator={<Button>Gửi</Button>}
-                
-                            />                                        
+                                <div className="relative">
+                                    <input type="search" id="default-search" className="w-[400px] block p-5 ps-5 text-sm border-main solid border-[2px] rounded-lg bg-black" placeholder="Nhập Email..." required />
+                                    <button type="submit" className="text-white bg-main absolute end-2.5 bottom-3.5 font-medium rounded-lg text-sm px-4 py-2">Gửi</button>
+
+                                </div>                                        
                             </div>
                         </div>
                
@@ -87,16 +72,24 @@ function Footer () {
                         <p>Trip Heaven mang đến hành trình khám phá trọn vẹn với dịch vụ chuyên nghiệp, điểm đến độc đáo và trải nghiệm đáng nhớ cho mọi du khách.</p>
                         <div className='grid grid-cols-4 gap-x-[20px]'>
                                 <div className='w-[45px] h-[45px] rounded-[50%] solid border-white border-[2px] flex items-center justify-center'>
-                                    <a href="http://"><FacebookRoundedIcon/></a>
+                                    <a href="http://" className='flex items-center justify-center'>
+                                        <FontAwesomeIcon icon={faFacebookF} />
+                                    </a>
                                 </div>
                                 <div className='w-[45px] h-[45px] rounded-[50%] solid border-white border-[2px] flex items-center justify-center'>
-                                    <a href="http://"><InstagramIcon/></a>
+                                     <a href="http://" className='flex items-center justify-center'>
+                                         <FontAwesomeIcon icon={faInstagram} />                    
+                                      </a>
                                 </div>
                                 <div className='w-[45px] h-[45px] rounded-[50%] solid border-white border-[2px] flex items-center justify-center'>
-                                    <a href="http://"><GitHubIcon/></a>
+                                    <a href="http://" className='flex items-center justify-center'>
+                                    <FontAwesomeIcon icon={faGithub} />  
+                                    </a>
                                 </div>
                                 <div className='w-[45px] h-[45px] rounded-[50%] solid border-white border-[2px] flex items-center justify-center'>
-                                    <a href="http://"><PermPhoneMsgIcon/></a>
+                                     <a href="http://" className='flex items-center justify-center'>
+                                     <FontAwesomeIcon icon={faPinterest} />  
+                                    </a>
                                 </div>
                             
                         </div>
@@ -107,25 +100,25 @@ function Footer () {
                             <hr className='w-[30%] border-main border-[1px]'/>
                         </div>
                         <div>
-                                <ul className='space-y-5'> 
-                                    <li className='flex items-center gap-x-[5px]'>
-                                        <ArrowForwardIosIcon className='w-1/4 !text-[15px]'/>
+                                <ul className='space-y-4'> 
+                                    <li className='flex items-center gap-x-[5px] ml-[-10px]'>
+                                         <FontAwesomeIcon icon={faAngleDown} />
                                         <a className='w-3/4 flex justify-start'href="">Trang chủ</a>
                                     </li>
-                                    <li className='flex items-center gap-x-[5px]'>
-                                        <ArrowForwardIosIcon className='w-1/4 !text-[15px]'/>
+                                    <li className='flex items-center gap-x-[5px] ml-[-10px]'>
+                                        <FontAwesomeIcon icon={faAngleDown} />
                                         <a className='w-3/4 flex justify-start'href="">Giới thiệu</a>
                                     </li>
-                                    <li className='flex items-center gap-x-[5px]'>
-                                        <ArrowForwardIosIcon className='w-1/4 !text-[15px]'/>
+                                    <li className='flex items-center gap-x-[5px] ml-[-10px]'>
+                                         <FontAwesomeIcon icon={faAngleDown} />
                                         <a className='w-3/4 flex justify-start'href="">Tour</a>
                                     </li>
-                                    <li className='flex items-center gap-x-[5px]'>
-                                        <ArrowForwardIosIcon className='w-1/4 !text-[15px]'/>
+                                    <li className='flex items-center gap-x-[5px] ml-[-10px]'>
+                                        <FontAwesomeIcon icon={faAngleDown} />
                                         <a className='w-3/4 flex justify-start'href="">Tin tức</a>
                                     </li>
-                                    <li className='flex items-center gap-x-[5px]'>
-                                        <ArrowForwardIosIcon className='w-1/4 !text-[15px]'/>
+                                    <li className='flex items-center gap-x-[5px] ml-[-10px]'>
+                                        <FontAwesomeIcon icon={faAngleDown} />
                                         <a className='w-3/4 flex justify-start'href="">Liên hệ</a>
                                     </li>
                                   
@@ -140,18 +133,18 @@ function Footer () {
                         </div>
                         <div>
                             <ul className='space-y-5'>
-                                <li  className='flex items-center gap-x-[10px]'>
-                                    <LocationPinIcon/>
-                                    <a href="">1073/23 Cách mạng tháng 8, P7, Q.Tân Bình, TP.HCM</a>
-                                </li>
-                                <li  className='flex items-center gap-x-[10px]'>
-                                    <EmailIcon/>
-                                    <a href="">nguyentuananh22042004@gmail.com</a>
-                                </li>
-                                <li  className='flex items-center gap-x-[10px]'>
-                                    <PhoneIcon/>
-                                    <a href="">(+84) 784223858</a>
-                                </li>
+                                    <li  className='flex items-center gap-x-[10px]'>
+                                        <FontAwesomeIcon icon={faLocationDot} />
+                                        <a href="">1073/23 Cách mạng tháng 8, P7, Q.Tân Bình, TP.HCM</a>
+                                    </li>
+                                    <li  className='flex items-center gap-x-[10px]'>
+                                        <FontAwesomeIcon icon={faEnvelope} />                                       
+                                        <a href="">nguyentuananh22042004@gmail.com</a>
+                                    </li>
+                                    <li  className='flex items-center gap-x-[10px]'>
+                                        <FontAwesomeIcon icon={faPhone} />
+                                        <a href="">(+84) 784223858</a>
+                                    </li>
                             </ul>
                         </div>
                     </div>
@@ -189,9 +182,10 @@ function Footer () {
                     <div className='flex'>
                         <div className='flex items-center justify-center'>
                             <div> 
-                                <span><CopyrightIcon style={{color:'white', fontSize:'16px'}}/></span>
+                                  <i className='bx bx-copyright text-white text-[15px]'></i>  
                             </div>
                             <div>
+                                
                                 <span className='text-white text-[16px] pl-[5px]'>Thiết kế và lập trình bởi:  
                                 <a className='font-[700] text-main'href=""> MonoMedia </a> 
                                 /

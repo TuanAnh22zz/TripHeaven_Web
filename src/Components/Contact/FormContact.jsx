@@ -2,6 +2,9 @@ import { memo } from 'react';
 import LayoutContainer from '../../Components/All/LayoutContainer';
 import Button from '../../Components/All/Button'
 
+
+
+
 function FormContact () {
     return (
         <div className='bg-[#F7F7F7]'>
@@ -40,7 +43,7 @@ function FormContact () {
                         <div className='flex items-center justify-center w-full'>
                             <Button>
                                 Gửi
-                            </Button>
+                            </Button> 
                         </div>
                     </div>
                 </div>

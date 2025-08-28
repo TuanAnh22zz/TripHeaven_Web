@@ -1,18 +1,34 @@
-import { memo } from 'react';
-import LayoutContainer from '../../Components/All/LayoutContainer';
+import { memo, FC } from 'react';
+import LayoutContainer from '../All/LayoutContainer';
 import Image1 from '../../assets/images/Introduction/img-2-1.jpg'
 import Image2 from '../../assets/images/Introduction/img-2-2.jpg'
 import Button from '../All/Button';
 
-const introInfo  = 
-{
-    sub_title: 'Chúng tôi là Trip Haven',
-    title: 'Trip Haven là lựa chọn tốt nhất cho chuyến đi của bạn.',
-    text:'Với hàng ngàn địa điểm du lịch, hướng dẫn du lịch chi tiết và những lời khuyên hữu ích, chúng tôi sẽ giúp bạn lên kế hoạch cho những chuyến đi tuyệt vời và trải nghiệm không thể quên.',
-    buttonText:'Xem thêm',
-};
+interface InfoProps { 
+    sub_title: string,
+    title: string,
+    text: string,
+    buttonText: string
 
-const introText = [
+}
+
+
+
+const introInfo: InfoProps[] = [
+    {
+        
+        sub_title: 'Chúng tôi là Trip Haven',
+        title: 'Trip Haven là lựa chọn tốt nhất cho chuyến đi của bạn.',
+        text:'Với hàng ngàn địa điểm du lịch, hướng dẫn du lịch chi tiết và những lời khuyên hữu ích, chúng tôi sẽ giúp bạn lên kế hoạch cho những chuyến đi tuyệt vời và trải nghiệm không thể quên.',
+        buttonText:'Xem thêm',
+    }
+];
+
+interface TextProps {
+    id: number,
+    text: string
+}
+const introText: TextProps[] = [
     {
         id: 1,
         text:'Địa điểm chi tiết'
@@ -44,10 +60,12 @@ const introText = [
 
 
 ];
-
-const IntroItem = ({text}) => (
+interface RenderText {
+    itemText: TextProps
+}
+const IntroItem: FC<RenderText> = ({itemText}) => (
     <li className='list-disc marker:text-main'>
-        {text}
+        {itemText.text}
     </li>
 )
 
@@ -86,9 +104,9 @@ function Intro () {
                     </div>
                     <div className='w-1/2 flex justify-center items-center mr-auto pl-[50px]'>
                         <div>
-                                <span className='font-[700] text-[24px] mb-[15px] text-transparent-[capitalize] text-main'>{introInfo.sub_title}</span>
-                                    <h2 className='mt-[15px] font-[700] text-[40px] uppercase text-black'>{introInfo.title}</h2>
-                                    <p className='text-black leading-[26px] mt-[30px] mb-[40px] pr-[80px]'>{introInfo.text}
+                                <span className='font-[700] text-[24px] mb-[15px] text-transparent-[capitalize] text-main'>{introInfo[0].title}</span>
+                                    <h2 className='mt-[15px] font-[700] text-[40px] uppercase text-black'>{introInfo[0].sub_title}</h2>
+                                    <p className='text-black leading-[26px] mt-[30px] mb-[40px] pr-[80px]'>{introInfo[0].text}
                                         
                                         
                                     </p>
@@ -97,7 +115,7 @@ function Intro () {
                                                 {introText.filter(item => [1, 2, 3 ,4].includes(item.id)).map((item) => (
                                                 <IntroItem
                                                     key={item.id}
-                                                    text={item.text}
+                                                    itemText={item}
                                                 />  
                                                 ))}
                                             </ul>
@@ -105,7 +123,7 @@ function Intro () {
                                             {introText.filter(item => [5, 6, 7].includes(item.id)).map((item) => (
                                                 <IntroItem
                                                 key={item.id}
-                                                text={item.text}
+                                                itemText={item}
                                                 />   
                                             ))}
                                             </ul>
@@ -113,7 +131,7 @@ function Intro () {
                                     <div className='btn_wrapper'>
                                         <a href="http://">
                                             <Button>
-                                            {introInfo.buttonText}
+                                            {introInfo[0].buttonText}
                                             </Button>
                                         </a>
                                 

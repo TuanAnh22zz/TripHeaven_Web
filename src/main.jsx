@@ -3,6 +3,10 @@ import { createRoot } from 'react-dom/client'
 import HomePage from './Pages/HomePage'
 import Contact from './Pages/Contact'
 import Introduction from './Pages/Introduction'
+import Destination from './Pages/Destination'
+import ListDestinations from './Pages/ListDestinations'
+import DetailTrip from './Pages/DetailTrip'
+
 
 import './Styles/index.css'
 

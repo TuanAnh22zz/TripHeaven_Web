@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import  MaterialButton from '@mui/material/Button'
+
 import LayoutContainer from '../../Components/All/LayoutContainer';
 import Button from '../All/Button';
 
@@ -12,6 +12,7 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import ImageBlog1 from '../../assets/images/6-2-342x252.jpg';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+
 
 
 const infoBlog = [
@@ -64,11 +65,12 @@ const ItemBlog = ({title, text, image}) => (
             <time dateTime='2022-04-10'>10 Tháng Tư, 2022</time>
         
         </div>
-        <MaterialButton variant="contained" disableElevation className='!rounded-[5px] !bg-main !text-[16px] !font-[700] !py-[8px] !px-[30px] !mt-[10px]'>
-            Đọc thêm    
-        </MaterialButton>
+
+            <Button>
+                Đọc thêm   
+            </Button>
    
-    </div>
+        </div>
 )
 
 function Blog() {

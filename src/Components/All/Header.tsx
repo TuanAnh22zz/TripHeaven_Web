@@ -1,12 +1,13 @@
-import { memo } from 'react';
+import { memo, FC } from 'react';
 import LogoImage from '../../assets/images/1-e1709277145445.png'
-import  MaterialButton from '@mui/material/Button'
-import SearchIcon from '@mui/icons-material/Search';
-import MenuIcon from '@mui/icons-material/Menu';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import LayoutContainer from './LayoutContainer';
-
-const infoMenu = [
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faBars, faMagnifyingGlass, faAngleDown} from '@fortawesome/free-solid-svg-icons'
+interface HeaderProps {
+    id: number,
+    text: string
+}
+const infoMenu: HeaderProps[] =  [
     {
         id: 1,
         text:'Trang chủ'
@@ -15,34 +16,35 @@ const infoMenu = [
         id: 2,
         text:'Giới thiệu'
     },
+  
     {
         id: 3,
-        text:'Tour'
-    },
-    {
-        id: 4,
         text:'Tin tức'
     },
     {
-        id: 5,
+        id: 4,
         text:'Liên hệ',
     },
     
 ]
+
+interface RenderHeader { 
+    header: HeaderProps
+}
    
 
 
 
-const HeaderMenu = ({text}) => (
+const HeaderMenu: FC<RenderHeader> = ({header}) => (
     <li>
-        <a href="http://" className='flex text-[#1C1C1C] text-[20px] font-[700]'>{text}</a>
+        <a href="http://" className='flex text-[#1C1C1C] text-[20px] font-[700]'>{header.text}</a>
     </li>
     
 );
 
 function Header () {
     return (
-        <div className="py-[40px] bg-white">
+        <div className="py-[30px] bg-white">
         <LayoutContainer className='!py-[10px]'>
         <div className="w-[100%] grid grid-cols-[1fr_3fr] flex-wrap">
                 <div className="flex items-center">
@@ -60,22 +62,28 @@ function Header () {
                            {infoMenu.map((item) => (
                                 <HeaderMenu
                                     key={item.id}
-                                    text={item.text}
+                                    header={item}
                                 />
-                           ))}
+                           
+                          
+                           ))}      
+                                <li className='flex items-center gap-x-[5px]'>
+                                    <a href="http://" className='flex text-[#1C1C1C] text-[20px] font-[700]'>Tour</a>
+                                     <FontAwesomeIcon icon={faAngleDown} className='text-black text-[20px]' />
+
+                                </li>
                         </ul> 
                     </div>
                     <div className="flex items-center justify-end gap-[20px]">
                         <div className="search__button">
-    
-                        <MaterialButton variant="contained" disableElevation style={{width: '40px', height: '60px', borderRadius:'60%', backgroundColor: "#4CAF50"}}>
-                               <SearchIcon/>
-                        </MaterialButton>
+                            <button className='w-[60px] h-[60px] rounded-[60%] bg-main flex items-center justify-center'>
+                                 <FontAwesomeIcon icon={faMagnifyingGlass} className='text-white text-[20px]'/>
+                            </button>
                         </div>
                         <div className="info_button">
-                        <MaterialButton variant="contained" disableElevation style={{width: '40px', height: '60px', borderRadius:'60%', backgroundColor: "#4CAF50"}}>
-                            <MenuIcon/>
-                          </MaterialButton>
+                             <button className='w-[60px] h-[60px] rounded-[60%] bg-main flex items-center justify-center'>
+                                <FontAwesomeIcon icon={faBars} className='text-white text-[20px]' />
+                            </button>   
                         </div>
                     </div>
 

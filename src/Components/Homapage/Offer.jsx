@@ -1,9 +1,10 @@
 import { memo } from 'react';
-import  MaterialButton from '@mui/material/Button'
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import LayoutContainer from '../All/LayoutContainer';
 import VideoBackground from '../../assets/images/discount-bg.jpg'
 import OfferPicture from '../../assets/images/visit-left2.png'
+import Button from '../All/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faPlay} from '@fortawesome/free-solid-svg-icons'
 
 
 const offerInfo = {
@@ -101,9 +102,10 @@ function Offer () {
 
                                 <div className='flex items-center justify-center'>
                                             <a href="http://">
-                                                <MaterialButton variant="contained" disableElevation className='muiButton btn_style1 !bg-secondary'>
+                                               
+                                                <Button className='!bg-secondary'>
                                                     {offerInfo.buttonText}
-                                                </MaterialButton>
+                                                </Button>
                                             </a>
                                     
                                 </div>
@@ -113,9 +115,10 @@ function Offer () {
                                 <div className="relative flex items-center justify-center h-[480px] lg:h-[640px] max-w-full bg-cover bg-center rounded-2xl" style={{backgroundImage: `url(${VideoBackground})`}}>
                                     <div className='btn_wrapper'>
                                         <a href="http://">
-                                            <MaterialButton variant="contained" disableElevation className='!bg-main !p-[40px] !rounded-[50%]' >
-                                                <PlayArrowIcon fontSize='large'/>
-                                            </MaterialButton>
+                                        
+                                            <button className='bg-main p-[40px] rounded-[50%]' >
+                                                <FontAwesomeIcon icon={faPlay} className='text-white text-[20px]'/>
+                                            </button>
                                         </a>
                                     </div>
                                 </div>                 

@@ -1,29 +1,45 @@
 
-import { memo } from 'react';
-import MailIcon from '@mui/icons-material/Mail';
-import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { memo, JSX } from 'react';
+import React, { FC} from 'react';
 import LayoutContainer from './LayoutContainer';
-const contactInfo = [
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faEnvelope, faPhone, faCircleUser} from '@fortawesome/free-solid-svg-icons'
+
+const EmailIcon = <FontAwesomeIcon icon={faEnvelope} />
+const PhoneIcon = <FontAwesomeIcon icon={faPhone} />
+
+
+interface HeaderTopProps {
+  type: string,
+  icon: JSX.Element,
+  text: string,
+  href: string,
+}
+
+const contactInfo: HeaderTopProps[] = [
     {
       type: 'email',
-      icon: <MailIcon fontSize="large" />,
+      icon: EmailIcon,
       text: 'nguyentuananh22042004@gmail.com',
       href: 'mailto:nfo@themona.global', 
     },
     {
       type: 'phone',
-      icon: <PermPhoneMsgIcon fontSize="large" />,
+      icon: PhoneIcon,
       text: '(+84) 784223858',
       href: 'tel:+84313728397', 
     },
   ];
 
-  const ContactItem = ({ icon, text, href }) => (
+interface RenderHeaderTop {
+    headerTop: HeaderTopProps
+}
+
+const ContactItem: FC<RenderHeaderTop> = ({headerTop}) => (
     <li>
-      <a href={href} className='flex items-center text-white text-[17px]'>
-        {icon}
-        <span className='ml-[10px]'> {text}</span>
+      <a href={headerTop.href} className='flex items-center text-white text-[17px]'>
+        {headerTop.icon}
+        <span className='ml-[10px]'> {headerTop.text}</span>
       </a>
     </li>
   );
@@ -39,16 +55,15 @@ const contactInfo = [
                 {contactInfo.map((item) => (
                   <ContactItem
                     key={item.type} 
-                    icon={item.icon}
-                    text={item.text}
-                    href={item.href}
+                    headerTop={item}
+                    
                   />
                 ))}
               </ul>
             </div>
             <div className="w-1/2 flex items-center justify-end">
               <a href="#">
-                <AccountCircleIcon fontSize="large" />
+                <FontAwesomeIcon icon={faCircleUser} className='text-[30px]' />
               </a>
             </div>
           </div>

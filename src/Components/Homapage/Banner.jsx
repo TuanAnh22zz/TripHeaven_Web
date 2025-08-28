@@ -1,14 +1,10 @@
 import { memo } from 'react';
-import RowingIcon from '@mui/icons-material/Rowing';
 import Button from '../All/Button';
-import  MaterialButton from '@mui/material/Button'
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import Input from '@mui/joy/Input';
-import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
-import PaidIcon from '@mui/icons-material/Paid';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import BannerBackgroundImage from '../../assets/images/hero2-bg.jpg'
 import LayoutContainer from '../All/LayoutContainer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot, faPersonSwimming,faClockFour, faDollarSign, faChevronDown} from '@fortawesome/free-solid-svg-icons';
+
 const bannerInfo = 
     {
         sub_title: 'Khám phá ngay',
@@ -20,25 +16,25 @@ const bannerSearch = [
     {
         id: 'destination',
         placeholder: 'Điểm đến',    
-        icon: <LocationOnIcon />,
+        icon: <FontAwesomeIcon icon={faLocationDot}/>,
     
     },
     {
         id: 'activity',
         placeholder: 'Hoạt động',    
-        icon: <RowingIcon/>,
+        icon: <FontAwesomeIcon icon={faPersonSwimming} />,
     
     },
     {
         id: 'duration',
         placeholder: '0 ngày - 8 ngày',    
-        icon: <AccessTimeFilledIcon />,
+        icon: <FontAwesomeIcon icon={faClockFour}/>,
     
     },
     {
         id: 'price',
         placeholder: '1,500,000đ - 5,000,000đ',    
-        icon: <PaidIcon />,
+        icon: <FontAwesomeIcon icon={faDollarSign} />
     
     }
 
@@ -46,14 +42,17 @@ const bannerSearch = [
 ]
 const SearchField = ({icon, placeholder}) => (
     <div className='py-[15px] px-[20px]'>
-        <Input
-            className='pt-[20px] pr-[10px] pb-[20px] w-[400px]'
-            type={'text'}
-            placeholder={placeholder}
-            startDecorator={icon}
-            endDecorator={<KeyboardArrowDownIcon/>}
-        />                     
+      
+           <div className="relative">
+        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+           {icon}
+        </div>
+        <input type="search" id="default-search" className="block w-full p-4 ps-10 text-[15px] rounded-lg solid border-main border-[1px] " placeholder={placeholder} required />
+        <FontAwesomeIcon icon={faChevronDown} className='absolute end-2.5 bottom-5'/>
+    </div>
      </div>
+
+   
 )
 function Banner() {
     return (
@@ -67,11 +66,11 @@ function Banner() {
                         <h2 className='mt-[15px] font-[700] text-[64px] text-white uppercase '>{bannerInfo.title}</h2>
                         <p className='text-white leading-[26px] mt-[30px] mb-[40px] pr-[200px]'>{bannerInfo.text} </p>
                         <div className='btn_wrapper'>
-                            <a href="http://">
+                            
                             <Button>
-                                  {bannerInfo.buttonText}
-                             </Button>
-                            </a>
+                                  <a href="">Xem thêm</a>
+                            </Button>
+                           
                     
                         </div>
                     </div>
@@ -88,12 +87,9 @@ function Banner() {
                             />
                             ))}
                         <div className='py-[25px] px-[20px]'>
-                            <a href="http://">
-                                <MaterialButton variant="contained" disableElevation className='py-[15px] px-[0]rounded-[10px] w-[400px] !bg-main'>
-                                    Tìm Ngay
-                                </MaterialButton>
-                            </a>
-                    
+                                <button className='py-[10px] w-[400px] bg-main text-white text-[16px] font-[700]'>
+                                     Tìm Ngay
+                                </button>
                         </div>
                         
                         </form>

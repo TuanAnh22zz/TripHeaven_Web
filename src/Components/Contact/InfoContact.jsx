@@ -1,8 +1,9 @@
 import { memo } from 'react';
+
 import LayoutContainer from '../../Components/All/LayoutContainer';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
-import ContactsIcon from '@mui/icons-material/Contacts';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLocationDot, faAddressBook ,faClockFour} from '@fortawesome/free-solid-svg-icons';
+
 function InfoContact () {
     return (
         <div>
@@ -12,7 +13,7 @@ function InfoContact () {
                             <div className='flex items-center bg-white rounded-[10px] px-[30px] py-[40px]'>
                                 <div className='w-1/4'>
                                     <div className='w-[60px] h-[60px] rounded-[50%] solid border-white border-[2px] flex items-center justify-center bg-main'>
-                                        <LocationOnIcon style={{color: 'white'}}/>
+                                        <FontAwesomeIcon icon={faLocationDot} className="text-white text-[25px]" />
                                     </div>
                                 </div>
                                 <div className='w-3/4'>
@@ -26,7 +27,7 @@ function InfoContact () {
                             <div className='flex items-center bg-white rounded-[10px] px-[30px] py-[40px]'>
                                 <div className='w-1/4'>
                                     <div className='w-[60px] h-[60px] rounded-[50%] solid border-white border-[2px] flex items-center justify-center bg-main'>
-                                        <ContactsIcon style={{color: 'white'}}/>
+                                         <FontAwesomeIcon icon={faAddressBook} className="text-[25px] text-white" />
                                     </div>
                                 </div>
                                 <div className='w-3/4'>
@@ -40,7 +41,7 @@ function InfoContact () {
                             <div className='flex items-center bg-white rounded-[10px] px-[30px] py-[40px]'>
                                 <div className='w-1/4'>
                                     <div className='w-[60px] h-[60px] rounded-[50%] solid border-white border-[2px] flex items-center justify-center bg-main'>
-                                        <QueryBuilderIcon style={{color: 'white'}}/>
+                                          <FontAwesomeIcon icon={faClockFour} className="text-white text-[25px]"/>
                                     </div>
                                 </div>
                                 <div className='w-3/4'>
