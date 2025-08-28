@@ -4,6 +4,7 @@ import Header from "../Components/All/Header";
 import Banner from "../Components/All/Banner";
 import Footer from "../Components/All/Footer";
 import BestTour from "../Components/Homapage/BestTour";
+import Overview from "../Components/DetailTrip/Overview";
 import LayoutContainer from "../Components/All/LayoutContainer";
 import DemoImage from '../assets/images/ListDestinations/4.jpg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,7 +27,7 @@ function DetailTrip () {
                 text2='Chuyến đi'
                 text3='Trang chủ'
             />
-
+        
             <div>
                 <LayoutContainer className="!px-[10px]">
                     <div className="flex flex-wrap">

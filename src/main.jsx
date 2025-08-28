@@ -13,6 +13,6 @@ import './Styles/index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Introduction/>
+    <DetailTrip/>
   </StrictMode>,
 )

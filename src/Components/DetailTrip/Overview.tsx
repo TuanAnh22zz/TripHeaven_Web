@@ -1,3 +1,15 @@
+import { memo } from "react";
+import LayoutContainer from "../All/LayoutContainer";
+import DemoImage from '../../assets/images/ListDestinations/4.jpg'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faCircleCheck, faCircleXmark, faLocationDot, faMap, 
+faCirclePlus,faHotel, faBus, faMountain, faCloudSunRain, faUtensils, faLanguage, faClock, faWifi, faChild, faPerson, faHeart} from '@fortawesome/free-solid-svg-icons'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination, Navigation } from 'swiper/modules';
+
 function Overview () {
     return (
         <div>
@@ -437,7 +449,7 @@ function Overview () {
                                                 </div>
                                                 <div className="w-3/4">
                                                     <span>
-                                                        Services not mentioned or not promised by the agent/agency expenses)
+                                                        Services not mentioned or not promised by the agent/agency expenses.
                                                     </span>
                                                 </div>
                                         </div>
@@ -469,7 +481,7 @@ function Overview () {
                         <div className="space-y-4 px-[40px]">
                             <h2 className="text-[28px]">Bản đồ tham quan</h2>
                             <div>
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.954410425894!2d106.67525717504132!3d10.73799718940843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f62a90e5dbd%3A0x674d5126513db295!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgU8OgaSBHw7Ju!5e0!3m2!1svi!2s!4v1756102408935!5m2!1svi!2s" width="600" height="450" style={{border: "0"}} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.954410425894!2d106.67525717504132!3d10.73799718940843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f62a90e5dbd%3A0x674d5126513db295!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgU8OgaSBHw7Ju!5e0!3m2!1svi!2s!4v1756102408935!5m2!1svi!2s" width="600" height="450" style={{border: "0"}} allowFullScreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                         </div>
                         {/* Phần form */}
@@ -545,7 +557,7 @@ function Overview () {
                             <div className="flex flex-wrap">
                                 <div className="w-full">
                                     <label  htmlFor="default-input" className="block mb-2 text-sm font-medium ">Nhập nội dung: <span className="text-red-500">*</span></label>
-                                    <textarea name="" id="" cols="30" rows="10" placeholder="Nhập nội dung: *" className="bg-gray-50 border border-[#505050] text-gray-900 text-sm rounded-lg  w-full py-[15px] px-[10px]"></textarea>
+                                    <textarea name="" id="" cols={30} rows={10} placeholder="Nhập nội dung: *" className="bg-gray-50 border border-[#505050] text-gray-900 text-sm rounded-lg  w-full py-[15px] px-[10px]"></textarea>
                                 </div>
                             </div>
 
@@ -744,6 +756,7 @@ function Overview () {
                     
                   
                 </div>
+                
             </div>
         </LayoutContainer>
     </div>
