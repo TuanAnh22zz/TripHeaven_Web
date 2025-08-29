@@ -1,5 +1,5 @@
-import { memo } from 'react';
-import LayoutContainer from '../../Components/All/LayoutContainer';
+import { memo,FC,JSX } from 'react';
+import LayoutContainer from '../All/LayoutContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
 import Image1 from '../../assets/images/Destination/destinations-1-1.jpg'
@@ -12,8 +12,12 @@ import Image7 from '../../assets/images/Destination/destinations-1-7.jpg'
 import Image8 from '../../assets/images/Destination/destinations-1-8.jpg'
 import Image9 from '../../assets/images/Destination/destinations-1-9.jpg'
 
-
-const DetailList = [
+export interface DestinationProps {
+    id: number,
+    name: string,
+    image: JSX.Element
+}
+const DetailList: DestinationProps[] = [
     {
         id:1,
         name:'Annapurna',
@@ -61,11 +65,15 @@ const DetailList = [
     },
 ]
 
-const InfoDestination = ({name, image}) => (
+interface RenderDestinationProps {
+    destination: DestinationProps
+}
+
+const InfoDestination: FC<RenderDestinationProps> = ({destination}) => (
     <div className=''>
-        <div className='max-w-full w-[386] h-[405px] rounded-[20px] bg-cover'   style={{ backgroundImage: `url(${image})`}}></div>
+        <div className='max-w-full w-[386] h-[405px] rounded-[20px] bg-cover'   style={{ backgroundImage: `url(${destination.image})`}}></div>
         <div className='font-[700] text-[20px] pt-[20px]'>
-            <a href="">{name}</a>
+            <a href="">{destination.name}</a>
             <FontAwesomeIcon icon={faArrowRight} className='pl-[5px] text-[16px]' />
         </div>
     </div>
@@ -83,8 +91,7 @@ function ListDestination () {
                        {DetailList.map((item) => (
                             <InfoDestination
                                 key={item.id}
-                                name={item.name}
-                                image={item.image}
+                                destination={item}
                             />
                        ))}
                     </div>

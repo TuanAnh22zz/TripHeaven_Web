@@ -1,17 +1,28 @@
 
-import { memo } from 'react';
-import LayoutContainer from '../../Components/All/LayoutContainer';
+import { memo, FC, JSX } from 'react';
+import LayoutContainer from '../All/LayoutContainer';
 import Background1 from '../../assets/images/Destination/Bg.png'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
-import Button from '../../Components/All/Button';
+import Button from '../All/Button';
 import Destination1 from '../../assets/images/Destination/10-900x490.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faClock, faMap} from '@fortawesome/free-regular-svg-icons'
-const InfoTour = [
+
+
+export interface TourProps {
+    id: number,
+    image: string
+    title:string,
+    time: string,
+    price: string,
+    location: string
+
+}
+const InfoTour: TourProps[] = [
     {
         id:1,
         image: Destination1,
@@ -67,12 +78,16 @@ const InfoTour = [
         
     },
 ]
+interface RenderTourProps {
+    tour: TourProps
+}
 
-const RenderTour = ({image, title, time, price, location}) => (
+
+const RenderTour: FC<RenderTourProps> = ({tour}) => (
     <div className='drop-shadow-lg bg-white rounded-[10px]'>
-    <img src={image} alt="" className='w-full h-[251px] max-w-full rounded-t-[10px] mb-[30px]' />
+    <img src={tour.image} alt="" className='w-full h-[251px] max-w-full rounded-t-[10px] mb-[30px]' />
     <div className='px-[15px]'>
-        <a href="http://" className='text-[24px] font-[700]'>{title}</a>
+        <a href="http://" className='text-[24px] font-[700]'>{tour.title}</a>
         
         <div className='flex flex-wrap mt-[25px] relative'>
                 <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-0 border-l-[1px] border-[#505050] border-solid"></div>
@@ -84,7 +99,7 @@ const RenderTour = ({image, title, time, price, location}) => (
                             </div>
                             <div className='w-3/4'>
                                 <span>
-                                    <a href=""> {location} </a>,
+                                    <a href=""> {tour.location} </a>,
 
                                     <a href=""></a>
                                     <a href=""></a>
@@ -98,7 +113,7 @@ const RenderTour = ({image, title, time, price, location}) => (
                             <FontAwesomeIcon icon={faClock} />
                             </div>
                         <div className='w-3/4'>
-                            <span>{time}</span>
+                            <span>{tour.time}</span>
                         </div>
 
                     </div>
@@ -106,7 +121,7 @@ const RenderTour = ({image, title, time, price, location}) => (
                     
                 </div>
                 <div className='w-1/2 flex items-center justify-center'>
-                    <span className='font-[700] text-[24px]'>{price}</span>
+                    <span className='font-[700] text-[24px]'>{tour.price}</span>
                 </div>
                 
            
@@ -152,11 +167,7 @@ function BestTour () {
                     {InfoTour.filter(item => [1,2,3].includes(item.id)).map(item => (
                         <RenderTour
                             key={item.id}
-                            image={item.image}
-                            title={item.title}
-                            time={item.time}
-                            price={item.price}
-                            location={item.location}
+                            tour={item}
                         />
                     ))}
                 </div>
@@ -166,11 +177,7 @@ function BestTour () {
                     {InfoTour.filter(item => [4,5,6].includes(item.id)).map(item => (
                             <RenderTour
                                 key={item.id}
-                                image={item.image}
-                                title={item.title}
-                                time={item.time}
-                                price={item.price}
-                                location={item.location}
+                                tour={item}
                             />
                         ))}
                 </div>

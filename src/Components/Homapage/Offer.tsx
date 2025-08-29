@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, FC } from 'react';
 import LayoutContainer from '../All/LayoutContainer';
 import VideoBackground from '../../assets/images/discount-bg.jpg'
 import OfferPicture from '../../assets/images/visit-left2.png'
@@ -6,15 +6,26 @@ import Button from '../All/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPlay} from '@fortawesome/free-solid-svg-icons'
 
+export interface InfoOfferProps {
+    sub_title: string
+    title:string
+    text:string
+    buttonText:string
+}
+const offerInfo:InfoOfferProps[]  = [
+    {
+        sub_title: 'Ưu đãi giới hạn',
+        title: 'Nhận giảm giá lên đến 50%',
+        text:'Thời gian có hạn. Hãy khám phá ngay',
+        buttonText:'Xem thêm',
+    }
+]
 
-const offerInfo = {
-    sub_title: 'Ưu đãi giới hạn',
-    title: 'Nhận giảm giá lên đến 50%',
-    text:'Thời gian có hạn. Hãy khám phá ngay',
-    buttonText:'Xem thêm',
-};
-
-const clockItem = [
+export interface ClockProps {
+    id: number,
+    text:string
+}
+const clockItem: ClockProps[] = [
     {
         id: 1,
         text:'10'
@@ -32,8 +43,16 @@ const clockItem = [
         text:'04'
     },
 ]
+interface RenderClockProps {
+    clock: ClockProps
+}
 
-const label = [
+
+export interface LableProps {
+    id: number
+    text:string
+}
+const label: LableProps[] = [
     {
         id: 1,
         text:'Days'
@@ -51,19 +70,23 @@ const label = [
         text:'Seconds'
     },
 ]
+interface RenderProps {
+    label: LableProps
+}
 
 
 
-const ClockItem = ({text}) => (
+
+const ClockItem: FC<RenderClockProps> = ({clock}) => (
     <div className="flex gap-[40px]">
         <div className="w-[80px] h-[80px] bg-black rounded-[50%] flex items-center justify-center text-white text-[32px] font-[700]">
-            {text}
+            {clock.text}
         </div>
     </div>
 )
-const LableItem = ({text}) => (
+const LableItem: FC<RenderProps> = ({label}) => (
     <span className='w-[80px] text-center text-[14px] text-[#666] uppercase'>
-        {text}
+        {label.text}
     </span>
 )
 
@@ -76,16 +99,16 @@ function Offer () {
                 <div className="relative flex flex-col lg:flex-row items-center">
                         <div className='relative z-10 w-full max-w-2xl lg:w-auto bg-white p-8 lg:p-12 rounded-2xl shadow-2xl flex-shrink-0'>
                             <div className='w-[595px] max-w-[595px] bg-white p-[30px] rounded-[20px]'>
-                                <span className='text-main font-[700] text-[24px] '>{offerInfo.sub_title}</span>
-                                <h2 className='text-black font-[700] text-[40px]'>{offerInfo.title}</h2>
-                                <p className='mb-[30px]'>{offerInfo.text}</p>
+                                <span className='text-main font-[700] text-[24px] '>{offerInfo[0].sub_title}</span>
+                                <h2 className='text-black font-[700] text-[40px]'>{offerInfo[0].title}</h2>
+                                <p className='mb-[30px]'>{offerInfo[0].text}</p>
             
                                 <div className="flex items-center flex-col mt-[50px] gap-[50px] ">
                                 <div className="flex gap-[40px]">
                                     {clockItem.map((item) => (
                                         <ClockItem
                                             key={item.id}
-                                            text={item.text}
+                                            clock={item}
                                         />
                                     ))}
                                 </div>
@@ -94,7 +117,7 @@ function Offer () {
                                     {label.map((item) => (
                                             <LableItem
                                                 key={item.id}
-                                                text={item.text}
+                                                label={item}
                                             />
                                     ))}
                                     </div>
@@ -103,9 +126,10 @@ function Offer () {
                                 <div className='flex items-center justify-center'>
                                             <a href="http://">
                                                
-                                                <Button className='!bg-secondary'>
-                                                    {offerInfo.buttonText}
-                                                </Button>
+                                             
+                                                <button type="button" className="text-white bg-secondary font-[700] text-[16px] rounded-lg  px-5 py-2.5 mt-[5px]">
+                                                    {offerInfo[0].buttonText}
+                                                </button>
                                             </a>
                                     
                                 </div>

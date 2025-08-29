@@ -28,7 +28,7 @@ function Introduction () {
                     <div className='text-main font-[700] text-[24px] mb-[15px]'>Sự ra đời</div>
                     <div className='text-black mt-[15px] text-[40px] uppercase font-[700]'>Lịch sử của chúng tôi</div>
                 </div>
-                <div class="grid grid-cols-2 grid-rows-3 gap-4 relative">
+                <div className="grid grid-cols-2 grid-rows-3 gap-4 relative">
                 <div className="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-0 border-l-[5px] border-main border-dashed"></div>
                    <div className='pl-[13px] pr-[100px] mt-0'>
                     <div className='bg-white solid border-[2px] border-main px-[40px] py-[30px]'>

@@ -1,59 +1,84 @@
-import { memo } from 'react';
+import { memo, FC, JSX } from 'react';
 import Button from '../All/Button';
 import BannerBackgroundImage from '../../assets/images/hero2-bg.jpg'
 import LayoutContainer from '../All/LayoutContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faPersonSwimming,faClockFour, faDollarSign, faChevronDown} from '@fortawesome/free-solid-svg-icons';
+const LocationIcon =<FontAwesomeIcon icon={faLocationDot}/>
+const PersonSwimmingIcon = <FontAwesomeIcon icon={faPersonSwimming} />
+const ClockFourIcon= <FontAwesomeIcon icon={faClockFour}/>
+const DollarSignIcon=  <FontAwesomeIcon icon={faDollarSign} />
 
-const bannerInfo = 
+export interface InfoBannerProps {
+    sub_title: string,
+    title: string,
+    text: string,
+    buttonText: string
+}
+const bannerInfo: InfoBannerProps[] = [
     {
         sub_title: 'Khám phá ngay',
         title: 'Hành trình thú vị đang chờ đợi',
         text: 'Chào mừng bạn đến với trang chủ của chúng tôi, nơi bạn có thể khám phá và trải nghiệm những chuyến du lịch tuyệt vời. Chúng tôi tự hào là một đơn vị hàng đầu trong ngành du lịch, mang đến cho bạn những trải nghiệm đáng nhớ và không thể quên.',
         buttonText: 'Xem thêm',
-    };
+    }
+
+]
+    
+
+export interface BannerSearchProps {
+    id: string,
+    placeholder: string,
+    icon: JSX.Element
+}
 const bannerSearch = [
     {
         id: 'destination',
         placeholder: 'Điểm đến',    
-        icon: <FontAwesomeIcon icon={faLocationDot}/>,
+        icon: LocationIcon
     
     },
     {
         id: 'activity',
         placeholder: 'Hoạt động',    
-        icon: <FontAwesomeIcon icon={faPersonSwimming} />,
+        icon: PersonSwimmingIcon
     
     },
     {
         id: 'duration',
         placeholder: '0 ngày - 8 ngày',    
-        icon: <FontAwesomeIcon icon={faClockFour}/>,
+        icon: ClockFourIcon
     
     },
     {
         id: 'price',
         placeholder: '1,500,000đ - 5,000,000đ',    
-        icon: <FontAwesomeIcon icon={faDollarSign} />
+        icon: DollarSignIcon
     
     }
 
 
 ]
-const SearchField = ({icon, placeholder}) => (
+interface RenderBannerSearch {
+    banner: BannerSearchProps
+}
+const SearchField: FC<RenderBannerSearch> = ({banner}) => (
     <div className='py-[15px] px-[20px]'>
       
            <div className="relative">
         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-           {icon}
+           {banner.icon}
         </div>
-        <input type="search" id="default-search" className="block w-full p-4 ps-10 text-[15px] rounded-lg solid border-main border-[1px] " placeholder={placeholder} required />
+        <input type="search" id="default-search" className="block w-full p-4 ps-10 text-[15px] rounded-lg solid border-main border-[1px] " placeholder={banner.placeholder} required />
         <FontAwesomeIcon icon={faChevronDown} className='absolute end-2.5 bottom-5'/>
     </div>
      </div>
 
    
 )
+
+
+
 function Banner() {
     return (
         <div className="bg-no-repeat w-full bg-cover bg-center"   style={{ backgroundImage: `url(${BannerBackgroundImage})` }}>
@@ -62,13 +87,15 @@ function Banner() {
         <div className="flex flex-wrap">
                 <div className="w-1/2 flex mr-auto">
                     <div className="">
-                        <span className='font-[700] text-[24px] mb-[15px] text-transparent-[capitalize] text-[#4CAF50] '>{bannerInfo.sub_title}</span>
-                        <h2 className='mt-[15px] font-[700] text-[64px] text-white uppercase '>{bannerInfo.title}</h2>
-                        <p className='text-white leading-[26px] mt-[30px] mb-[40px] pr-[200px]'>{bannerInfo.text} </p>
+                        <span className='font-[700] text-[24px] mb-[15px] text-transparent-[capitalize] text-[#4CAF50] '>{bannerInfo[0].sub_title}</span>
+                        <h2 className='mt-[15px] font-[700] text-[64px] text-white uppercase '>{bannerInfo[0].sub_title}</h2>
+                        <p className='text-white leading-[26px] mt-[30px] mb-[40px] pr-[200px]'>{bannerInfo[0].text} </p>
                         <div className='btn_wrapper'>
                             
                             <Button>
-                                  <a href="">Xem thêm</a>
+                                  <a href="">
+                                    {bannerInfo[0].buttonText}
+                                  </a>
                             </Button>
                            
                     
@@ -82,8 +109,7 @@ function Banner() {
                             {bannerSearch.map((item) => (
                              < SearchField
                                     key={item.id}
-                                    icon={item.icon}
-                                    placeholder={item.placeholder}
+                                    banner={item}
                             />
                             ))}
                         <div className='py-[25px] px-[20px]'>

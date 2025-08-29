@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import LayoutContainer from '../../Components/All/LayoutContainer';
-import Button from '../../Components/All/Button'
+import LayoutContainer from '../All/LayoutContainer';
+import Button from '../All/Button'
 
 
 
@@ -37,7 +37,7 @@ function FormContact () {
                         </div>
 
                         <div className='w-full'>
-                            <textarea name="" id="" cols="30" rows="8" placeholder='Nhập nội dung ...' className=' pl-[16px] pt-[16px] border-main solid border-[2px] rounded-[10px] w-[100%]'></textarea>
+                            <textarea name="" id="" cols={30} rows={8} placeholder='Nhập nội dung ...' className=' pl-[16px] pt-[16px] border-main solid border-[2px] rounded-[10px] w-[100%]'></textarea>
                         </div>
 
                         <div className='flex items-center justify-center w-full'>

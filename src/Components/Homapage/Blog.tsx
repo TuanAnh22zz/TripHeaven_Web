@@ -1,6 +1,6 @@
-import { memo } from 'react';
+import { memo, FC } from 'react';
 
-import LayoutContainer from '../../Components/All/LayoutContainer';
+import LayoutContainer from '../All/LayoutContainer';
 import Button from '../All/Button';
 
 import React, { useRef, useState } from 'react';
@@ -13,9 +13,14 @@ import { Pagination, Navigation } from 'swiper/modules';
 import ImageBlog1 from '../../assets/images/6-2-342x252.jpg';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
+export interface InfoBlogProps {
+    id: number
+    title: string
+    text: string
+    image: string
+}
 
-
-const infoBlog = [
+const infoBlog: InfoBlogProps[] = [
     {
         id: 1,
         title: '10 Sun Hats For Beach Days, Long',
@@ -55,11 +60,15 @@ const infoBlog = [
     },
 ];
 
-const ItemBlog = ({title, text, image}) => (
+interface RenderInfoBlog {
+    blog: InfoBlogProps
+}
+
+const ItemBlog: FC<RenderInfoBlog>  = ({blog}) => (
     <div className='border-main p-[20px] border-solid border-[3px] rounded-[20px]'>
-        <img src={image} alt="" className='w-[341px] h-[251px] max-w-full rounded-[20px] mb-[30px]' />
-        <a href="http://" className='text-[24px] font-[700]'>{title}</a>
-        <p className='text-[16px] font-[400] text-[#505050] pt-[10px] pb-[40px]'>{text}</p>
+        <img src={blog.image} alt="" className='w-[341px] h-[251px] max-w-full rounded-[20px] mb-[30px]' />
+        <a href="http://" className='text-[24px] font-[700]'>{blog.title}</a>
+        <p className='text-[16px] font-[400] text-[#505050] pt-[10px] pb-[40px]'>{blog.text}</p>
         <div className='flex items-center justify-start'>
             <CalendarMonthIcon fontSize='large' className='pr-[10px]'/>
             <time dateTime='2022-04-10'>10 Tháng Tư, 2022</time>
@@ -102,9 +111,7 @@ function Blog() {
                             {infoBlog.filter(item => [1,2,3].includes(item.id)).map((item) => (
                                     <ItemBlog
                                         key={item.id}
-                                        title={item.title}
-                                        text={item.text}
-                                        image={item.image}
+                                        blog={item}
                                     />
                             ))}
                             
@@ -117,9 +124,7 @@ function Blog() {
                         {infoBlog.filter(item => [4,5,6].includes(item.id)).map((item) => (
                                 <ItemBlog
                                     key={item.id}
-                                    title={item.title}
-                                    text={item.text}
-                                    image={item.image}
+                                    blog={item}
                                 />
                         ))}
                 

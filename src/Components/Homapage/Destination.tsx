@@ -1,5 +1,5 @@
-import { memo } from 'react';
-import LayoutContainer from '../../Components/All/LayoutContainer';
+import { memo, FC } from 'react';
+import LayoutContainer from '../All/LayoutContainer';
 import React, { useRef, useState } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,7 +10,13 @@ import { Pagination, Navigation } from 'swiper/modules';
 import Destination_1 from '../../assets/images/destinations-1-3.jpg'
 import DestinationBackground from '../../assets/images/Bg.png'
 
-const infoDestination = [
+export interface InfoDestinationProps {
+    id:number,
+    name: string
+    image: string
+}
+
+const infoDestination: InfoDestinationProps[] = [
     {
         id:1,
         name: 'Colombo',
@@ -42,11 +48,15 @@ const infoDestination = [
         image: Destination_1
     },
 ]
-const ItemDestination = ({name, image}) => (
+
+interface RenderDestinationProps {
+    destination: InfoDestinationProps
+}
+const ItemDestination: FC<RenderDestinationProps> = ({destination}) => (
    
          <div className=''>
-            <div className='max-w-full w-[386] h-[405px] rounded-[20px]'   style={{ backgroundImage: `url(${image})` }}></div>
-            <div className='font-[700] text-[20px] pt-[20px]'>{name}</div>
+            <div className='max-w-full w-[386] h-[405px] rounded-[20px]'   style={{ backgroundImage: `url(${destination.image})` }}></div>
+            <div className='font-[700] text-[20px] pt-[20px]'>{destination.name}</div>
         </div>
 
    
@@ -85,8 +95,7 @@ function Destination () {
                        {infoDestination.filter(item => [1,2,3].includes(item.id)).map((item) => (
                             <ItemDestination
                                 key={item.id}
-                                name={item.name}
-                                image={item.image}
+                                destination={item}
                             />
                        ))}
                         
@@ -98,8 +107,7 @@ function Destination () {
                         {infoDestination.filter(item => [4,5,6].includes(item.id)).map((item) => (
                                     <ItemDestination
                                         key={item.id}
-                                        name={item.name}
-                                        image={item.image}
+                                        destination={item}
                                     />
                             ))}
                         

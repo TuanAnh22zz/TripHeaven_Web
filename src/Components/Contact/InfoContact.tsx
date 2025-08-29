@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import LayoutContainer from '../../Components/All/LayoutContainer';
+import LayoutContainer from '../All/LayoutContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faAddressBook ,faClockFour} from '@fortawesome/free-solid-svg-icons';
 

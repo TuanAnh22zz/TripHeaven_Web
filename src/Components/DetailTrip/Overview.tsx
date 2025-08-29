@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, FC, JSX } from "react";
 import LayoutContainer from "../All/LayoutContainer";
 import DemoImage from '../../assets/images/ListDestinations/4.jpg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,6 +9,124 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
+
+const HotelIcon =   <FontAwesomeIcon icon={faHotel} style={{color: '#4CAF50'}} />
+const BusIcon =  <FontAwesomeIcon icon={faBus} style={{color: '#4CAF50'}} />
+const MountainIcon = <FontAwesomeIcon icon={faMountain} style={{color: '#4CAF50'}} />
+const CloudSunRain =  <FontAwesomeIcon icon={faCloudSunRain}  style={{color: '#4CAF50'}}/>
+const HeartIcon =  <FontAwesomeIcon icon={faHeart} style={{color: '#4CAF50'}}/>
+const UtensilsIcon =<FontAwesomeIcon icon={faUtensils}  style={{color: '#4CAF50'}}/>
+const LanguageIcon  =<FontAwesomeIcon icon={faLanguage} style={{color: '#4CAF50'}}/>
+const ClockIcon =  <FontAwesomeIcon icon={faClock} style={{color: '#4CAF50'}}  />
+const WifiIcon =  <FontAwesomeIcon icon={faWifi} style={{color: '#4CAF50'}} />
+const ChildIcon = <FontAwesomeIcon icon={faChild} style={{color: '#4CAF50'}}/>
+const PersonIcon = <FontAwesomeIcon icon={faPerson} style={{color: '#4CAF50'}}/>
+
+
+
+export interface SidebarProps { 
+    id: number,
+    title: string,
+    text: string, 
+    icon: JSX.Element
+}
+
+const InfoSidebar: SidebarProps[] = [
+    {
+        id: 1,
+        title: 'Chỗ ở',
+        text: '4 Stars Hotel',
+        icon: HotelIcon
+    },
+    {
+        id: 2,
+        title: 'Di chuyển',
+        text: 'Bus, Airline',
+        icon: BusIcon
+    },
+    {
+        id: 3,
+        title: 'Độ cao tối đa',
+        text: '5,416 metres',
+        icon: MountainIcon
+    }, 
+    {
+        id: 4,
+        title: 'Mùa tốt nhất',
+        text: 'Feb, Mar, Apr & May',
+        icon: CloudSunRain
+    },
+    {
+        id: 5,
+        title: 'Chuyến đi sẵn có',
+        text: 'Available',
+        icon: HeartIcon
+    },
+    {
+        id: 6,
+        title: 'Bữa ăn',
+        text: 'All meals during the trip',
+        icon: UtensilsIcon
+    },
+    {
+        id: 7,
+        title: 'Ngôn ngữ',
+        text: 'English, Spanish, French, Chinese',
+        icon: LanguageIcon
+    },
+    {
+        id: 8,
+        title: 'Giờ đi bộ',
+        text: '5-8 Hours',
+        icon: ClockIcon
+    },
+    {
+        id: 9,
+        title: 'Wifi',
+        text: 'Available',
+        icon: WifiIcon
+    },
+    {
+        id: 10,
+        title: 'Tuổi nhỏ nhất',
+        text: '12',
+        icon: ChildIcon
+    },
+    {
+        id: 11,
+        title: 'Tuổi lớn nhất',
+        text: '65',
+        icon: PersonIcon
+    },
+
+
+
+
+
+]
+
+interface RenderSidebarProps {
+    sidebar: SidebarProps
+}
+
+const RenderSidebar: FC<RenderSidebarProps> = ({sidebar}) => (
+    <li className="space-y-2">
+        <div className="flex flex-wrap">
+            <div className="w-fit">
+                {sidebar.icon}
+            </div>
+            <div className="w-fit pl-[8px]">
+                <label htmlFor="" className="text-[13px] text-[#06162666]">{sidebar.title}</label>
+            </div>
+        </div>
+        <div>
+            <span className="text-[15px] text-[#505050]">{sidebar.text}</span>
+        </div>
+    </li>
+)
+
+
+
 
 function Overview () {
     return (
@@ -606,151 +724,12 @@ function Overview () {
                     
                     <div className="flex flex-wrap items-center justify-start  pl-[125px] py-[50px]">
                         <ul className="space-y-8">
-                            <li className="space-y-2">
-                                <div className="flex flex-wrap">
-                                    <div className="w-fit">
-                                        <FontAwesomeIcon icon={faHotel} style={{color: '#4CAF50'}} />
-                                    </div>
-                                    <div className="w-fit pl-[8px]">
-                                        <label htmlFor="" className="text-[13px] text-[#06162666]">Chỗ ở</label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span className="text-[15px] text-[#505050]">4 Stars Hotel</span>
-                                </div>
-                            </li>
-                            <li className="space-y-2">
-                                <div className="flex flex-wrap">
-                                    <div className="w-fit">
-                                        <FontAwesomeIcon icon={faBus} style={{color: '#4CAF50'}} />
-                                    </div>
-                                    <div className="w-fit pl-[8px]">
-                                        <label htmlFor="" className="text-[13px] text-[#06162666]">Di chuyển</label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span className="text-[15px] text-[#505050]">Bus, Airline</span>
-                                </div>
-                            </li>
-                            <li className="space-y-2">
-                                <div className="flex flex-wrap">
-                                    <div className="w-fit">
-                                        <FontAwesomeIcon icon={faMountain} style={{color: '#4CAF50'}} />
-                                    </div>
-                                    <div className="w-3/4 pl-[8px]">
-                                        <label htmlFor="" className="text-[13px] text-[#06162666]">Độ cao tối đa</label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span className="text-[15px] text-[#505050]">5,416 metres</span>
-                                </div>
-                            </li>
-                            <li className="space-y-2">
-                                <div className="flex flex-wrap">
-                                    <div className="w-fit">
-                                        <FontAwesomeIcon icon={faCloudSunRain}  style={{color: '#4CAF50'}}/>
-                                    </div>
-                                    <div className="w-3/4 pl-[8px]">
-                                        <label htmlFor="" className="text-[13px] text-[#06162666]">Mùa tốt nhất</label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span className="text-[15px] text-[#505050]">Feb, Mar, Apr & May</span>
-                                </div>
-                            </li>
-                            <li className="space-y-2">
-                                <div className="flex flex-wrap">
-                                    <div className="w-fit">
-                                        <FontAwesomeIcon icon={faHeart} style={{color: '#4CAF50'}}/>
-                                    </div>
-                                    <div className="w-3/4 pl-[8px]">
-                                        <label htmlFor="" className="text-[13px] text-[#06162666]">Chuyến đi sẵn có</label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span className="text-[15px] text-[#505050]">Available</span>
-                                </div>
-                            </li>
-                            <li className="space-y-2">
-                                <div className="flex flex-wrap">
-                                    <div className="w-fit">
-                                        <FontAwesomeIcon icon={faUtensils}  style={{color: '#4CAF50'}}/>
-                                    </div>
-                                    <div className="w-3/4 pl-[8px]">
-                                        <label htmlFor="" className="text-[13px] text-[#06162666]">Bữa ăn</label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span className="text-[15px] text-[#505050]">All meals during the trip</span>
-                                </div>
-                            </li>
-                            <li className="space-y-2">
-                                <div className="flex flex-wrap">
-                                    <div className="w-fit">
-                                        <FontAwesomeIcon icon={faLanguage} style={{color: '#4CAF50'}}/>
-                                    </div>
-                                    <div className="w-3/4 pl-[8px]">
-                                        <label htmlFor="" className="text-[13px] text-[#06162666]">Ngôn ngữ</label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span className="text-[15px] text-[#505050]">English, Spanish, French, Chinese</span>
-                                </div>
-                            </li>
-                            <li className="space-y-2">
-                                <div className="flex flex-wrap">
-                                    <div className="w-fit">
-                                        <FontAwesomeIcon icon={faClock} style={{color: '#4CAF50'}}  />
-                                    </div>
-                                    <div className="w-3/4 pl-[8px]">
-                                        <label htmlFor="" className="text-[13px] text-[#06162666]">Giờ đi bộ</label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span className="text-[15px] text-[#505050]">5-8 Hours</span>
-                                </div>
-                            </li>
-                            <li className="space-y-2">
-                                <div className="flex flex-wrap">
-                                    <div className="w-fit">
-                                        <FontAwesomeIcon icon={faWifi} style={{color: '#4CAF50'}} />
-                                    </div>
-                                    <div className="w-3/4 pl-[8px]">
-                                        <label htmlFor="" className="text-[13px] text-[#06162666]">Wifi</label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span className="text-[15px] text-[#505050]">Availablel</span>
-                                </div>
-                            </li>
-                            <li className="space-y-2">
-                                <div className="flex flex-wrap">
-                                    <div className="w-fit">
-                                        <FontAwesomeIcon icon={faChild} style={{color: '#4CAF50'}}/>
-                                    </div>
-                                    <div className="w-3/4 pl-[8px]">
-                                        <label htmlFor="" className="text-[13px] text-[#06162666]">Tuổi nhỏ nhất</label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span className="text-[15px] text-[#505050]">12</span>
-                                </div>
-                            </li>
-                            <li className="space-y-2">
-                                <div className="flex flex-wrap">
-                                    <div className="w-fit">
-                                        <FontAwesomeIcon icon={faPerson} style={{color: '#4CAF50'}}/>
-                                    </div>
-                                    <div className="w-3/4 pl-[8px]">
-                                        <label htmlFor="" className="text-[13px] text-[#06162666]">Tuổi lớn nhất</label>
-                                    </div>
-                                </div>
-                                <div>
-                                    <span className="text-[15px] text-[#505050]">65</span>
-                                </div>
-                            </li>
-                          
-
+                            {InfoSidebar.map((item) => (
+                               <RenderSidebar
+                                    key={item.id}
+                                    sidebar={item}
+                               />
+                            ))}
                         </ul>
                     </div>
                     

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import LayoutContainer from '../../Components/All/LayoutContainer';
+import LayoutContainer from '../All/LayoutContainer';
 import React, { useRef, useState } from 'react';
 import CommentBackground from '../../assets/images/testimonial-bg-2.jpg'
 import 'swiper/css';
