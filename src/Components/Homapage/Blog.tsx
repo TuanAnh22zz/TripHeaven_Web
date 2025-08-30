@@ -11,7 +11,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import ImageBlog1 from '../../assets/images/6-2-342x252.jpg';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faCalendarDays} from '@fortawesome/free-solid-svg-icons';
+
 
 export interface InfoBlogProps {
     id: number
@@ -70,7 +72,7 @@ const ItemBlog: FC<RenderInfoBlog>  = ({blog}) => (
         <a href="http://" className='text-[24px] font-[700]'>{blog.title}</a>
         <p className='text-[16px] font-[400] text-[#505050] pt-[10px] pb-[40px]'>{blog.text}</p>
         <div className='flex items-center justify-start'>
-            <CalendarMonthIcon fontSize='large' className='pr-[10px]'/>
+            <FontAwesomeIcon icon={faCalendarDays} style={{color: '#4CAF50'}} size="lg" className='pr-[5px]'/>
             <time dateTime='2022-04-10'>10 Tháng Tư, 2022</time>
         
         </div>

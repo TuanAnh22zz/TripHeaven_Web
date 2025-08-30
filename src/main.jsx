@@ -6,13 +6,13 @@ import Introduction from './Pages/Introduction'
 import Destination from './Pages/Destination'
 import ListDestinations from './Pages/ListDestinations'
 import DetailTrip from './Pages/DetailTrip'
-
+import Blog from './Pages/Blog'
 
 import './Styles/index.css'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HomePage/>
+    <Blog/>
   </StrictMode>,
 )
