@@ -115,7 +115,9 @@ function Introduction() {
                     </div>
                     <div className="w-1/2 flex justify-end items-center">
                         <div className="img__introduction">
-                            <div className='max-w-full h-[375px] w-[531px] rounded-[10px]' style={{backgroundImage: `url(${Image1})`}}></div>
+                            <div className='max-w-full h-[375px] w-[531px] rounded-[10px]  ' style={{backgroundImage: `url(${Image1})`}}>
+        
+                            </div>
                             <div className='h-[190px] max-w-[280px] mt-[30px] rounded-[10px] bg-cover ' style={{backgroundImage: `url(${Image2})`}}></div>
                             <div className='bg-no-repeat bg-cover h-[285px] max-w-[210px] ml-[300px] mt-[-300px] rounded-[20px] border-solid border-secondary border-[10px]' style={{backgroundImage: `url(${Image3})`}}></div>
                         </div> 

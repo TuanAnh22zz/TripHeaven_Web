@@ -11,6 +11,7 @@ import Blog from '../Components/Homapage/Blog';
 import Comment from '../Components/Homapage/Comment';
 import Footer from '../Components/All/Footer'
 import BestTour from '../Components/Homapage/BestTour';
+import ScrollToTopButton from '../Components/Hook/ScrollToTopButton';
 import React, { useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -41,6 +42,7 @@ function HomePage() {
             <Comment/>
             <Blog/>
             <Footer/>
+            <ScrollToTopButton/>
         </div>
         
      

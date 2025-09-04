@@ -46,9 +46,11 @@ interface RenderFeatureProps {
 }
 
 const FeatureItem: FC<RenderFeatureProps> = ({feature}) => (
-    <div className="bg-main p-[30px] justify-items-center rounded-[20px] text-white text-center" style={{backgroundImage: `url(${FeatureBackground})`}}>
-        <div className="flex items-center justify-center w-[100px] h-[100px] rounded-[50px] bg-white mb-[40px]">
+    <div className="bg-main p-[30px] justify-items-center rounded-[20px] text-white text-center group hover:bg-secondary duration-1000 ease-in-out" style={{backgroundImage: `url(${FeatureBackground})`}}>
+        <div className="relative flex items-center justify-center w-[100px] h-[100px] rounded-[50px] bg-white mb-[40px]">
              <img src={feature.url} alt="feature_1" width={"30px"} height={"35px"}/>
+             <div className="absolute top-3 left-0.5 w-5 h-5 bg-yellow-400 rounded-full group-hover:bg-main duration-1000"></div>
+             <div className="absolute bottom-3 right-0.5 w-5 h-5 bg-yellow-400 rounded-full group-hover:bg-main duration-1000"></div>
         </div>
         <h3 className='font-[700] mb-[20px]'>{feature.title}</h3>
         <span className='leading-[30px]'>

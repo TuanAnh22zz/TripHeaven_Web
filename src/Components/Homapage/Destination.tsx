@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import Destination_1 from '../../assets/images/destinations-1-3.jpg'
 import DestinationBackground from '../../assets/images/Bg.png'
 
@@ -84,10 +84,13 @@ function Destination () {
                 spaceBetween={30}
                 loop={true}
                 pagination={{
-                clickable: true,
-                }}
+                clickable: true,  }}
                 navigation={true}
-                modules={[Pagination, Navigation]}
+                modules={[Pagination, Navigation, ]}
+                autoplay={{
+                    delay: 5000, 
+                    disableOnInteraction: false, 
+                  }}
                 className="mySwiper"
             >
                  <SwiperSlide className='px-[80px] py-[50px]'>

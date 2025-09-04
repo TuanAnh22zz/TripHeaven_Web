@@ -7,12 +7,13 @@ import Destination from './Pages/Destination'
 import ListDestinations from './Pages/ListDestinations'
 import DetailTrip from './Pages/DetailTrip'
 import Blog from './Pages/Blog'
+import DetailBlog from './Pages/DetailBlog'
 
 import './Styles/index.css'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Blog/>
+    <HomePage/>
   </StrictMode>,
 )

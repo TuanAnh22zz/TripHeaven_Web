@@ -5,8 +5,8 @@ import LayoutContainer from './LayoutContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faEnvelope, faPhone, faCircleUser} from '@fortawesome/free-solid-svg-icons'
 
-const EmailIcon = <FontAwesomeIcon icon={faEnvelope} />
-const PhoneIcon = <FontAwesomeIcon icon={faPhone} />
+const EmailIcon = <FontAwesomeIcon icon={faEnvelope}  className='group-hover:text-white text-[#4CAF50] duration-1000'/>
+const PhoneIcon = <FontAwesomeIcon icon={faPhone}  className='group-hover:text-white text-[#4CAF50] duration-1000' />
 
 
 interface HeaderTopProps {
@@ -21,7 +21,7 @@ const contactInfo: HeaderTopProps[] = [
       type: 'email',
       icon: EmailIcon,
       text: 'nguyentuananh22042004@gmail.com',
-      href: 'mailto:nfo@themona.global', 
+      href: 'mailto:nguyentuananh22042004@gmail.com', 
     },
     {
       type: 'phone',
@@ -37,9 +37,12 @@ interface RenderHeaderTop {
 
 const ContactItem: FC<RenderHeaderTop> = ({headerTop}) => (
     <li>
-      <a href={headerTop.href} className='flex items-center text-white text-[17px]'>
-        {headerTop.icon}
-        <span className='ml-[10px]'> {headerTop.text}</span>
+      <a href={headerTop.href} className='flex items-center text-white text-[17px] group'>
+        <div className='w-[40px] h-[40px] flex items-center justify-center bg-white rounded-[50%] group-hover:bg-secondary duration-500 ease-in-out'>
+           {headerTop.icon}
+        </div>
+    
+        <span className='ml-[10px] group-hover:text-secondary duration-500'> {headerTop.text}</span>
       </a>
     </li>
   );
@@ -49,9 +52,9 @@ const ContactItem: FC<RenderHeaderTop> = ({headerTop}) => (
       <div className='bg-main text-white'>
    
         <LayoutContainer className='!py-[15px]'>
-        <div className="flex items-center">
+        <div className="flex ">
             <div className="w-1/2 flex items-center justify-start">
-              <ul className='p-0 flex items-center gap-[50px]'>
+              <ul className='p-0 flex items-center gap-x-[50px]'>
                 {contactInfo.map((item) => (
                   <ContactItem
                     key={item.type} 
@@ -61,10 +64,14 @@ const ContactItem: FC<RenderHeaderTop> = ({headerTop}) => (
                 ))}
               </ul>
             </div>
-            <div className="w-1/2 flex items-center justify-end">
-              <a href="#">
-                <FontAwesomeIcon icon={faCircleUser} className='text-[30px]' />
-              </a>
+            <div className="w-1/2 flex items-center justify-end ">
+              <div className=''>
+                  <a href="#">
+                    <FontAwesomeIcon icon={faCircleUser} className='text-[35px] hover:text-secondary ease-in-out duration-500'/>
+                    
+                  </a>
+              </div>
+            
             </div>
           </div>
         </LayoutContainer>

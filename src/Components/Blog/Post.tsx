@@ -129,7 +129,7 @@ function Post () {
                     <div className="bg-gray-100 px-[30px] py-[40px] rounded-[10px]">
 
                             <div>
-                                <h2 className="mb-2 text-[22px] font-medium capitalize">New Blog</h2>
+                                <h2 className="mb-2 text-[22px] font-medium capitalize">New Post</h2>
                                 <hr className="border-main solid border-[2px] w-[20%] mb-[30px]"/>
                                 <ul className="space-y-[20px]">
                                     <li>

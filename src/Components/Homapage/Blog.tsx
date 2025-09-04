@@ -12,7 +12,7 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import ImageBlog1 from '../../assets/images/6-2-342x252.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faCalendarDays} from '@fortawesome/free-solid-svg-icons';
+import {faCalendarDays, faArrowRight} from '@fortawesome/free-solid-svg-icons';
 
 
 export interface InfoBlogProps {
@@ -77,9 +77,24 @@ const ItemBlog: FC<RenderInfoBlog>  = ({blog}) => (
         
         </div>
 
-            <Button>
-                Đọc thêm   
-            </Button>
+        <button className="text-white bg-main px-[35px] py-2.5 mt-[20px] relative overflow-hidden font-[700] text-[16px] rounded-lg 
+                after:content-[''] 
+                after:absolute 
+                after:top-0 
+                after:bottom-0 
+                after:left-0 after:w-0 
+                after:bg-secondary
+                after:hover:w-full 
+                after:transition-[width]
+                after: ease-linear
+                duration-1000
+                ">
+                    <a href="http://" className='relative z-10 flex items-center' >
+                       <span>Đọc thêm</span>
+                       <FontAwesomeIcon icon={faArrowRight} className="ml-[10px]" />
+                    </a>
+                
+                </button>
    
         </div>
 )

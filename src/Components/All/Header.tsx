@@ -76,12 +76,12 @@ function Header () {
                     </div>
                     <div className="flex items-center justify-end gap-[20px]">
                         <div className="search__button">
-                            <button className='w-[60px] h-[60px] rounded-[60%] bg-main flex items-center justify-center'>
-                                 <FontAwesomeIcon icon={faMagnifyingGlass} className='text-white text-[20px]'/>
+                            <button className='w-[60px] h-[60px] rounded-[60%] bg-main flex items-center justify-center hover:bg-secondary duration-700 ease-in-out'>
+                                 <FontAwesomeIcon icon={faMagnifyingGlass} className='text-white text-[20px] '/>
                             </button>
                         </div>
                         <div className="info_button">
-                             <button className='w-[60px] h-[60px] rounded-[60%] bg-main flex items-center justify-center'>
+                             <button className='w-[60px] h-[60px] rounded-[60%] bg-main flex items-center justify-center hover:bg-secondary duration-700 ease-in-out'>
                                 <FontAwesomeIcon icon={faBars} className='text-white text-[20px]' />
                             </button>   
                         </div>

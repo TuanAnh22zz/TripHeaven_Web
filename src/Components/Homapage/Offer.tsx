@@ -127,8 +127,22 @@ function Offer () {
                                             <a href="http://">
                                                
                                              
-                                                <button type="button" className="text-white bg-secondary font-[700] text-[16px] rounded-lg  px-5 py-2.5 mt-[5px]">
-                                                    {offerInfo[0].buttonText}
+                                            <button className="text-white bg-secondary px-[35px] py-2.5 w-full relative overflow-hidden font-[700] text-[16px] rounded-lg
+                                                after:content-[''] 
+                                                after:absolute 
+                                                after:top-0 
+                                                after:bottom-0 
+                                                after:left-0 after:w-0 
+                                                after:bg-main
+                                                after:hover:w-full 
+                                                after:transition-[width]
+                                                after: ease-linear
+                                                duration-1000
+                                                ">
+                                                    <a href="http://" className='relative z-10'>
+                                                    <span>Xem chi tiết</span>
+                                                    </a>
+                                                
                                                 </button>
                                             </a>
                                     

@@ -85,7 +85,7 @@ function Banner() {
    
         <LayoutContainer>
         <div className="flex flex-wrap">
-                <div className="w-1/2 flex mr-auto">
+                <div className="w-1/2 flex mr-auto animate-slideInLeft">
                     <div className="">
                         <span className='font-[700] text-[24px] mb-[15px] text-transparent-[capitalize] text-[#4CAF50] '>{bannerInfo[0].sub_title}</span>
                         <h2 className='mt-[15px] font-[700] text-[64px] text-white uppercase '>{bannerInfo[0].sub_title}</h2>
@@ -94,7 +94,9 @@ function Banner() {
                             
                             <Button>
                                   <a href="">
-                                    {bannerInfo[0].buttonText}
+                                    <span>
+                                        {bannerInfo[0].buttonText}
+                                    </span>
                                   </a>
                             </Button>
                            
@@ -103,7 +105,7 @@ function Banner() {
                     </div>
 
                 </div>
-                <div className="w-1/2 flex justify-end items-center mr-auto">
+                <div className="w-1/2 flex justify-end items-center mr-auto animate-slideInRight">
                     <div className="info__banner__right">
                         <form action="" className='bg-white border-main border-solid border-[4px] rounded-[5px]'>
                             {bannerSearch.map((item) => (
@@ -113,7 +115,7 @@ function Banner() {
                             />
                             ))}
                         <div className='py-[25px] px-[20px]'>
-                                <button className='py-[10px] w-[400px] bg-main text-white text-[16px] font-[700]'>
+                                <button className='py-[10px] w-[400px] bg-main text-white text-[16px] font-[700] hover:bg-secondary ease-in-out duration-500'>
                                      Tìm Ngay
                                 </button>
                         </div>

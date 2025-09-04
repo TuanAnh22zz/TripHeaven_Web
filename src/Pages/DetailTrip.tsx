@@ -5,16 +5,10 @@ import Banner from "../Components/All/Banner";
 import Footer from "../Components/All/Footer";
 import BestTour from "../Components/Homapage/BestTour";
 import Overview from "../Components/DetailTrip/Overview";
-import LayoutContainer from "../Components/All/LayoutContainer";
-import DemoImage from '../assets/images/ListDestinations/4.jpg'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faCircleCheck, faCircleXmark, faLocationDot, faMap, 
-faCirclePlus,faHotel, faBus, faMountain, faCloudSunRain, faUtensils, faLanguage, faClock, faWifi, faChild, faPerson, faHeart} from '@fortawesome/free-solid-svg-icons'
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
+
 
 
 function DetailTrip () { 

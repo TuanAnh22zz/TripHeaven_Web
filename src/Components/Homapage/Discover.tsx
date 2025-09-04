@@ -32,12 +32,25 @@ function Discover () {
                         <h2 className='mt-[15px] font-[700] text-[40px] uppercase text-white'>{discoverInfo[0].title}</h2>
                         <p className='leading-[26px] mt-[30px] mb-[40px] pr-[200px] text-white'> {discoverInfo[0].text}</p>
                         <div className='btn_wrapper'>
-                            <a href="http://">
-                      
-                                <button className="!bg-white py-[10px] px-[30px] rounded-[15px] font-[700] text-main text-[16px]">
-                                    {discoverInfo[0].button_text}
-                                </button>
-                            </a>
+                            
+                            <button className="text-main bg-white px-[35px] py-2.5 group relative overflow-hidden font-[700] text-[16px] rounded-lg
+                                after:content-[''] 
+                                after:absolute 
+                                after:top-0 
+                                after:bottom-0 
+                                after:left-0 after:w-0 
+                                after:bg-main
+                                after:hover:w-full 
+                                after:transition-[width]
+                                after: ease-linear
+                                duration-2000
+                                ">
+                                <a href="http://" className='relative  z-10 group-hover:text-white '>
+                                <span>{discoverInfo[0].button_text}</span>
+                                </a>
+                
+                            </button>
+                         
                     
                         </div>
                     </div>
@@ -46,11 +59,17 @@ function Discover () {
            
                 <div className='w-1/2 mr-auto'>
                     <div className="flex items-center justify-center">
-                        <div className="flex items-center justify-center w-[440px] h-[440px] bg-white/60 rounded-[50%]">
+                        <div className="relative flex items-center justify-center w-[440px] h-[440px] bg-white/60 rounded-[50%]">
+                            <div className='absolute inset-0 animate-spin_slow '>
+                                <div className="absolute top-10 left-14 w-10 h-10 bg-yellow-400 rounded-full group-hover:bg-main duration-1000"></div>
+                                <div className="absolute bottom-10 right-14  w-10 h-10 bg-yellow-400 rounded-full group-hover:bg-main duration-1000"></div>
+                            </div>
+                       
                             <div className='flex items-center justify-center h-[350px] w-[350px] rounded-[50%] border-solid border-[50px] border-white bg-main'>
-                                
+                                    
                                     <div className='img__offer'>
                                         <img src= {Image0ffer} alt="" width={"140px"} height={"80px"}/>
+                                      
                                     </div>
                             
                             </div>
