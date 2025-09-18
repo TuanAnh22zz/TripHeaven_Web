@@ -1,6 +1,7 @@
 
 import { memo, JSX } from 'react';
 import React, { FC} from 'react';
+import { Link } from 'react-router-dom';
 import LayoutContainer from './LayoutContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faEnvelope, faPhone, faCircleUser} from '@fortawesome/free-solid-svg-icons'
@@ -66,10 +67,10 @@ const ContactItem: FC<RenderHeaderTop> = ({headerTop}) => (
             </div>
             <div className="w-1/2 flex items-center justify-end ">
               <div className=''>
-                  <a href="#">
+                  <Link to="/account">
                     <FontAwesomeIcon icon={faCircleUser} className='text-[35px] hover:text-secondary ease-in-out duration-500'/>
                     
-                  </a>
+                  </Link>
               </div>
             
             </div>

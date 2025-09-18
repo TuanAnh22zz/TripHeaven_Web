@@ -15,8 +15,7 @@ import Button from "../Components/All/Button";
 function DetailBlog () {
     return (
         <div>
-            <HeaderTop/>
-            <Header/>
+       
             <Banner
                 text1="Blog Details"
                 text2="Blog"
@@ -299,7 +298,7 @@ function DetailBlog () {
                 </LayoutContainer>
               
             </div>
-            <Footer/>
+           
 
         </div>
     );

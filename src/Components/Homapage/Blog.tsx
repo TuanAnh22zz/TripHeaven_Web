@@ -13,7 +13,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import ImageBlog1 from '../../assets/images/6-2-342x252.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCalendarDays, faArrowRight} from '@fortawesome/free-solid-svg-icons';
-
+import  useAnimationScroll from '../Hook/useAnimationScroll'
 
 export interface InfoBlogProps {
     id: number
@@ -100,21 +100,28 @@ const ItemBlog: FC<RenderInfoBlog>  = ({blog}) => (
 )
 
 function Blog() {
+    const { ref: ref1, view: view1 } = useAnimationScroll(0.5);
+    const { ref: ref2, view: view2 } = useAnimationScroll(0.5);
     return (
             <div className=''>
             <LayoutContainer className='!px-[0]'>
-                <div className='text-center'>
+                <div ref={ref1} className={`text-center ${view1?"animate-zoomIn":"opacity-0"}`}>
                     <div className='text-main font-[700] text-[24px] mb-[15px]'>Blog & Tin tức</div>
                     <div className='text-black mt-[15px] text-[40px] uppercase font-[700]'>Tin tức mới nhất</div>
                     <p className='mt-[30px] mb-[40px] text-[#505050] px-[300px]'>Khám phá bài viết mới nhất với thông tin nổi bật, các xu hướng mới nhất và nội dung hữu ích để giúp bạn cập nhật và được thông tin tức thời..</p>
                 </div>
-                <div className="
+                <div 
+                ref={ref2}
+                className={` 
                     relative
                     [&_.swiper-button-prev]:text-main
                     [&_.swiper-button-next]:text-main
                 
                     [&_.swiper-pagination-bullet-active]:bg-main
-                ">
+                    ${view2?"animate-zoomIn":"opacity-0"}
+                    `}
+                   
+                >
                         <Swiper
                     slidesPerView={1}
                     spaceBetween={30}

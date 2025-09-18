@@ -3,6 +3,7 @@ import LayoutContainer from '../All/LayoutContainer';
 import Image1 from '../../assets/images/Introduction/img-2-1.jpg'
 import Image2 from '../../assets/images/Introduction/img-2-2.jpg'
 import Button from '../All/Button';
+import useAnimationScroll from '../Hook/useAnimationScroll';
 
 interface InfoProps { 
     sub_title: string,
@@ -70,12 +71,14 @@ const IntroItem: FC<RenderText> = ({itemText}) => (
 )
 
 function Intro () {
+    const { ref: ref1, view: view1 } = useAnimationScroll(0.3);
+    const { ref: ref2, view: view2 } = useAnimationScroll(0.3);
     return (
         <div>
         <LayoutContainer>
             <div className='flex flex-wrap'>
                 
-                    <div className='w-1/2 flex mr-auto'>
+                    <div ref={ref1} className={`w-1/2 flex mr-auto ${view1?"animate-slideInLeft":"opacity-0"}`}>
                         <div>
                         <div className='py-[50px] w-[300px] h-[190px] bg-main flex items-center justify-center rounded-[20px] solid border-white border-[12px] mb-[-90px] ml-[300px]'>
                                 <div className='text-white pr-[50px]'>
@@ -102,7 +105,7 @@ function Intro () {
                         </div>
                     
                     </div>
-                    <div className='w-1/2 flex justify-center items-center mr-auto pl-[50px]'>
+                    <div ref={ref2} className={`w-1/2 flex justify-center items-center mr-auto pl-[50px] ${view2?"animate-slideInRight":"opacity-0"}`}>
                         <div>
                                 <span className='font-[700] text-[24px] mb-[15px] text-transparent-[capitalize] text-main'>{introInfo[0].title}</span>
                                     <h2 className='mt-[15px] font-[700] text-[40px] uppercase text-black'>{introInfo[0].sub_title}</h2>

@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCalendarDays, faEye, faArrowRight, faMessage, faCircleUser} from "@fortawesome/free-solid-svg-icons"
 import Button from "../../Components/All/Button";
 import ImageBlog1 from "../../assets/images/Blog/6-2.jpg"
+import useAnimationScroll from "../Hook/useAnimationScroll";
 
 export interface PostProps { 
     id: number,
@@ -46,6 +47,7 @@ interface RenderPostBlog {
 }
 
 const RenderInfoBlog: FC<RenderPostBlog> = ({blog}) => (
+    
         <div className="flex flex-wrap rounded-[20px] solid border-main border-[1px]">
         <div className="w-full">
             <img src={ImageBlog1} alt="" className="rounded-t-[20px] relative" />
@@ -99,11 +101,12 @@ const RenderInfoBlog: FC<RenderPostBlog> = ({blog}) => (
 
 
 function Post () {
+    const{ref: ref1, view: view1}=useAnimationScroll(0.1)
     return(
          <div>
         <LayoutContainer>
-            <div className="flex flex-wrap">
-                <div className="w-3/5 space-y-[60px]">
+            <div className="flex flex-wrap  animate-slideTop">
+                <div ref={ref1} className={`w-3/5 space-y-[60px]`}>
                     {InfoBlog.map((item) => (
                         <RenderInfoBlog
                             key={item.id}
@@ -111,7 +114,7 @@ function Post () {
                         />
                     ))}
                 </div>
-                <div className="w-2/5 px-[30px] space-y-[50px]">
+                <div className="w-2/5 px-[30px] space-y-[50px] ">
                     <div className="bg-gray-100 px-[30px] py-[40px] rounded-[10px]">
                             <div>
                                 <label htmlFor="search-input" className="mb-2 text-[22px] font-medium capitalize">Search</label>
@@ -131,20 +134,20 @@ function Post () {
                             <div>
                                 <h2 className="mb-2 text-[22px] font-medium capitalize">New Post</h2>
                                 <hr className="border-main solid border-[2px] w-[20%] mb-[30px]"/>
-                                <ul className="space-y-[20px]">
-                                    <li>
+                                <ul className="space-y-[20px] ">
+                                    <li className="hover:text-main duration-200 transition">
                                         <a href="http://">10 Sun Hats For Beach Days, Long Hikes, And Everything In Between</a>
                                     </li>
-                                    <li>
+                                    <li className="hover:text-main duration-200 transition">
                                         <a href="http://">Cambodia In August: Island Hopping And Weather Tips</a>
                                     </li>
-                                    <li>
+                                    <li className="hover:text-main duration-200 transition">
                                         <a href="http://">Kenya vs Tanzania Safari: The Better African Safari Experience</a>
                                     </li>
-                                    <li>
+                                    <li className="hover:text-main duration-200 transition">
                                         <a href="http://">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring</a>
                                     </li>
-                                    <li>
+                                    <li className="hover:text-main duration-200 transition">
                                         <a href="http://">Dorem ipsum dolor sit amet, consectetur adipiscing on a elit Curabitur argcu erat accumsan.</a>
                                     </li>
                                 </ul>
@@ -178,25 +181,25 @@ function Post () {
                                 <hr className="border-main solid border-[2px] w-[20%] mb-[30px]" />
                                 <div className="relative w-full">
                                     <ul className="font-[700] space-y-5">
-                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px]">
+                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px] hover:bg-main duration-500 transition ease-in-out">
                                                 <a href="http://">Adventure</a>
                                         </li>
-                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px]">
+                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px] hover:bg-main duration-500 transition ease-in-out">
                                                 <a href="http://">Food</a>
                                         </li>
-                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px]">
+                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px] hover:bg-main duration-500 transition ease-in-out">
                                                 <a href="http://">New year</a>
                                         </li>
-                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px]">
+                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px] hover:bg-main duration-500 transition ease-in-out">
                                                 <a href="http://">Summer</a>
                                         </li>
-                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px]">
+                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px] hover:bg-main duration-500 transition ease-in-out">
                                                 <a href="http://">Travel</a>
                                         </li>
-                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px]">
+                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px] hover:bg-main duration-500 transition ease-in-out">
                                                 <a href="http://">Allgemein</a>
                                         </li>
-                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px]">
+                                        <li className="border-main solid border-[2px] p-[20px] rounded-[10px] hover:bg-main duration-500 transition ease-in-out">
                                                 <a href="http://">Other</a>
                                         </li>
                                     </ul>
@@ -211,8 +214,19 @@ function Post () {
                                 <hr className="border-main solid border-[2px] w-[20%] mb-[30px]" />
                                 <div className="relative w-full space-y-4">
                                     <input type="search" id="newsletter-input" className="block p-[20px] w-full z-20 text-sm text-gray-900 bg-white rounded-[10px]" placeholder="Enter your email" required />
-                                    <button type="submit" className="w-full bg-main py-[18px] rounded-[10px] text-white uppercase font-[700]">
-                                            Subscribe
+                                    <button type="submit" className="relative overflow-hidden w-full bg-main py-[18px] rounded-[10px] text-white uppercase font-[700]
+                                     after:content-[''] 
+                                     after:absolute 
+                                     after:top-0 
+                                     after:bottom-0 
+                                     after:left-0 after:w-0 
+                                     after:bg-secondary
+                                     after:hover:w-full 
+                                     after:transition-[width]
+                                     after: ease-linear
+                                     duration-1000">
+                                        <span className="z-10 relative"> Subscribe</span>
+                                           
                                     </button>
                                 </div>
                             </div>
@@ -223,12 +237,12 @@ function Post () {
                                 <h2 className="mb-2 text-[22px] font-medium capitalize">tag</h2>
                                 <hr className="border-main solid border-[2px] w-[20%] mb-[30px]"/>
                                 <div className="w-full flex flex-wrap gap-y-3 gap-x-3 text-[14px]">
-                                    <a href="http://" className="bg-white p-[10px] rounded-[8px] ">Adventure</a>
-                                    <a href="http://" className="bg-white p-[10px] rounded-[8px] ">Camera</a>
-                                    <a href="http://" className="bg-white p-[10px] rounded-[8px] ">Camp</a>
-                                    <a href="http://" className="bg-white p-[10px] rounded-[8px] ">City</a>
-                                    <a href="http://" className="bg-white p-[10px] rounded-[8px] ">Nature</a>
-                                    <a href="http://" className="bg-white p-[10px] rounded-[8px] ">Summer</a>
+                                    <a href="http://" className="bg-white p-[10px] rounded-[8px] hover:bg-main duration-500 transition ease-in-out ">Adventure</a>
+                                    <a href="http://" className="bg-white p-[10px] rounded-[8px] hover:bg-main duration-500 transition ease-in-out">Camera</a>
+                                    <a href="http://" className="bg-white p-[10px] rounded-[8px] hover:bg-main duration-500 transition ease-in-out">Camp</a>
+                                    <a href="http://" className="bg-white p-[10px] rounded-[8px] hover:bg-main duration-500 transition ease-in-out">City</a>
+                                    <a href="http://" className="bg-white p-[10px] rounded-[8px] hover:bg-main duration-500 transition ease-in-out">Nature</a>
+                                    <a href="http://" className="bg-white p-[10px] rounded-[8px] hover:bg-main duration-500 transition ease-in-out">Summer</a>
                                 </div>
                             </div>
                     </div>

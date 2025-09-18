@@ -12,6 +12,7 @@ import Button from '../All/Button';
 import Destination1 from '../../assets/images/Destination/10-900x490.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faClock, faMap} from '@fortawesome/free-regular-svg-icons'
+import AnimationScroll from '../Hook/useAnimationScroll'
 
 
 export interface TourProps {
@@ -158,23 +159,28 @@ const RenderTour: FC<RenderTourProps> = ({tour}) => (
     </div>
 );
 function BestTour () {
+    const { ref, view } = AnimationScroll(0.2); 
+
     return (
         <div  className='' style={{backgroundImage: `url(${Background1})`}}>
         <LayoutContainer>
-            <div className='text-center animate-zoomIn'>
+            <div ref={ref}  className={`text-center ${view?"animate-zoomIn":"opacity-0"}`}>
                 <div className='text-main font-[700] text-[24px] mb-[15px]'>Chuyến đi tuyệt vời</div>
                 <div className='text-black mt-[15px] text-[40px] uppercase font-[700]'>Gói kỳ nghỉ tốt nhất</div>
                 <p className='mt-[30px] mb-[40px] text-[#505050] px-[200px]'>Khám phá gói kỳ nghỉ hoàn hảo, được thiết kế riêng cho mọi hành trình mơ ước của bạn. Từ các khu nghỉ dưỡng sang trọng đến những chuyến phiêu lưu kỳ thú, mọi chi tiết đều được chăm chút tỉ mỉ. Điều này cho phép bạn hoàn toàn đắm mình vào trải nghiệm và khám phá thế giới mà không cần lo lắng.</p>
             </div>
 
-            <div className="
-            animate-zoomIn
+            <div ref={ref}  className={` 
             relative
             [&_.swiper-button-prev]:text-main
             [&_.swiper-button-next]:text-main
         
             [&_.swiper-pagination-bullet-active]:bg-main
-        ">
+            ${view?"animate-zoomIn":"opacity-0"}
+            `}
+           
+           
+        >
                 <Swiper
                   
             slidesPerView={1}

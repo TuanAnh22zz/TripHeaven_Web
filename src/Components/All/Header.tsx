@@ -1,4 +1,5 @@
 import { memo, FC } from 'react';
+import { Link } from 'react-router-dom';
 import LogoImage from '../../assets/images/1-e1709277145445.png'
 import LayoutContainer from './LayoutContainer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,38 +7,43 @@ import {faBars, faMagnifyingGlass, faAngleDown} from '@fortawesome/free-solid-sv
 interface HeaderProps {
     id: number,
     text: string
+    link: string
 }
 const infoMenu: HeaderProps[] =  [
     {
         id: 1,
-        text:'Trang chủ'
+        text:'Trang chủ',
+        link:"/"
     },
     {
         id: 2,
-        text:'Giới thiệu'
+        text:'Giới thiệu',
+        link:"/introduction"
     },
   
     {
         id: 3,
-        text:'Tin tức'
+        text:'Tin tức',
+        link:"/blog"
     },
     {
         id: 4,
         text:'Liên hệ',
+        link:"/contact"
     },
     
 ]
 
 interface RenderHeader { 
     header: HeaderProps
-}
+}   
    
 
 
 
 const HeaderMenu: FC<RenderHeader> = ({header}) => (
-    <li>
-        <a href="http://" className='flex text-[#1C1C1C] text-[20px] font-[700]'>{header.text}</a>
+    <li className=''>
+        <Link to={header.link} className='flex text-[#1C1C1C] text-[20px] font-[700] hover:text-secondary transition duration-500'>{header.text}</Link>
     </li>
     
 );
@@ -49,9 +55,9 @@ function Header () {
         <div className="w-[100%] grid grid-cols-[1fr_3fr] flex-wrap">
                 <div className="flex items-center">
                     <div className='img__logo'>
-                        <a href="">
+                        <Link to="/">
                             <img src={LogoImage} alt="logo_image" width={"220px"} height={"64px"} />
-                        </a>
+                        </Link>
                     </div>
 
                 </div>
@@ -67,9 +73,9 @@ function Header () {
                            
                           
                            ))}      
-                                <li className='flex items-center gap-x-[5px]'>
-                                    <a href="http://" className='flex text-[#1C1C1C] text-[20px] font-[700]'>Tour</a>
-                                     <FontAwesomeIcon icon={faAngleDown} className='text-black text-[20px]' />
+                                <li className='flex items-center gap-x-[5px] group'>
+                                    <Link to="/destination" className='flex text-[#1C1C1C] text-[20px] font-[700] group-hover:text-secondary transition duration-500'>Tour</Link>
+                                     <FontAwesomeIcon icon={faAngleDown} className='text-black text-[20px] group-hover:text-secondary transition duration-500' />
 
                                 </li>
                         </ul> 

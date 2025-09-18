@@ -1,10 +1,10 @@
 import { memo } from 'react';
-
-
+import React, { useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import LogoImage1 from '../../assets/images/2-e1709277174419.png'
 import ImageBlog1 from '../../assets/images/6-2-342x252.jpg';
 import LayoutContainer from './LayoutContainer';
-import React, { useRef, useState } from 'react';
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -68,26 +68,28 @@ function Footer () {
             <div className='flex flex-wrap mt-[50px]'>
                 <div className='grid grid-cols-4'>
                     <div className='text-white space-y-6'>
-                        <img src={LogoImage1} alt="" />
+                        <Link to="/">
+                            <img src={LogoImage1} alt="" />
+                        </Link>
                         <p>Trip Heaven mang đến hành trình khám phá trọn vẹn với dịch vụ chuyên nghiệp, điểm đến độc đáo và trải nghiệm đáng nhớ cho mọi du khách.</p>
                         <div className='grid grid-cols-4 gap-x-[20px]'>
                                 <div className='w-[45px] h-[45px] rounded-[50%] solid border-white border-[2px] flex items-center justify-center'>
-                                    <a href="http://" className='flex items-center justify-center'>
+                                    <a href="https://www.facebook.com/anh.tuan.nguyen.372199/" className='flex items-center justify-center'>
                                         <FontAwesomeIcon icon={faFacebookF} />
                                     </a>
                                 </div>
                                 <div className='w-[45px] h-[45px] rounded-[50%] solid border-white border-[2px] flex items-center justify-center'>
-                                     <a href="http://" className='flex items-center justify-center'>
+                                     <a href="https://www.instagram.com/_ntanh22/" className='flex items-center justify-center'>
                                          <FontAwesomeIcon icon={faInstagram} />                    
                                       </a>
                                 </div>
                                 <div className='w-[45px] h-[45px] rounded-[50%] solid border-white border-[2px] flex items-center justify-center'>
-                                    <a href="http://" className='flex items-center justify-center'>
+                                    <a href="https://github.com/TuanAnh22zz" className='flex items-center justify-center'>
                                     <FontAwesomeIcon icon={faGithub} />  
                                     </a>
                                 </div>
                                 <div className='w-[45px] h-[45px] rounded-[50%] solid border-white border-[2px] flex items-center justify-center'>
-                                     <a href="http://" className='flex items-center justify-center'>
+                                     <a href="https://www.pinterest.com/nguyentuananh22042004/" className='flex items-center justify-center'>
                                      <FontAwesomeIcon icon={faPinterest} />  
                                     </a>
                                 </div>
@@ -103,23 +105,23 @@ function Footer () {
                                 <ul className='space-y-4'> 
                                     <li className='flex items-center gap-x-[5px] ml-[-10px]'>
                                          <FontAwesomeIcon icon={faAngleDown} />
-                                        <a className='w-3/4 flex justify-start'href="">Trang chủ</a>
+                                        <Link  to="/" className='w-3/4 flex justify-start'>Trang chủ</Link>
                                     </li>
                                     <li className='flex items-center gap-x-[5px] ml-[-10px]'>
                                         <FontAwesomeIcon icon={faAngleDown} />
-                                        <a className='w-3/4 flex justify-start'href="">Giới thiệu</a>
+                                        <Link to="/introduction" className='w-3/4 flex justify-start'>Giới thiệu</Link>
                                     </li>
                                     <li className='flex items-center gap-x-[5px] ml-[-10px]'>
                                          <FontAwesomeIcon icon={faAngleDown} />
-                                        <a className='w-3/4 flex justify-start'href="">Tour</a>
+                                        <Link to='/destination' className='w-3/4 flex justify-start'>Tour</Link>
                                     </li>
                                     <li className='flex items-center gap-x-[5px] ml-[-10px]'>
                                         <FontAwesomeIcon icon={faAngleDown} />
-                                        <a className='w-3/4 flex justify-start'href="">Tin tức</a>
+                                        <Link to="/blog" className='w-3/4 flex justify-start'>Tin tức</Link>
                                     </li>
                                     <li className='flex items-center gap-x-[5px] ml-[-10px]'>
                                         <FontAwesomeIcon icon={faAngleDown} />
-                                        <a className='w-3/4 flex justify-start'href="">Liên hệ</a>
+                                        <Link to="/contact" className='w-3/4 flex justify-start'>Liên hệ</Link>
                                     </li>
                                   
                                  
@@ -139,11 +141,11 @@ function Footer () {
                                     </li>
                                     <li  className='flex items-center gap-x-[10px]'>
                                         <FontAwesomeIcon icon={faEnvelope} />                                       
-                                        <a href="">nguyentuananh22042004@gmail.com</a>
+                                        <a href="mailto:nguyentuananh22042004@gmail.com">nguyentuananh22042004@gmail.com</a>
                                     </li>
                                     <li  className='flex items-center gap-x-[10px]'>
                                         <FontAwesomeIcon icon={faPhone} />
-                                        <a href="">(+84) 784223858</a>
+                                        <a href="tel:+84313728397">(+84) 784223858</a>
                                     </li>
                             </ul>
                         </div>

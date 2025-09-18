@@ -6,6 +6,7 @@ import Button from '../All/Button';
 import Image1 from '../../assets/images/about-1-1.jpg'
 import Image2 from '../../assets/images/about-1-2.jpg'
 import Image3 from '../../assets/images/about-1-3.jpg'
+import useAnimationScroll from '../Hook/useAnimationScroll';
 
 export interface InfoIntroProps {
     sub_title: string
@@ -70,13 +71,15 @@ const IntroItem: FC<RenderIntroText> = ({intro}) => (
 
 
 function Introduction() {
+    const { ref: ref1, view: view1 } = useAnimationScroll(0.3);
+    const { ref: ref2, view: view2 } = useAnimationScroll(0.3);
     return (  
         <div style={{backgroundImage: `url(${IntroductionBackground})`}} className='bg-no-repeat '>
              <div className="bg-white/70">
           
         <LayoutContainer>
         <div className="flex flex-wrap">
-                    <div className="w-1/2 flex items-center">
+                    <div ref={ref1} className={`w-1/2 flex items-center ${view1?"animate-slideInLeft":"opacity-0"}`}>
                         <div className='info__intro'>
                             <span className='font-[700] text-[24px] mb-[15px] text-transparent-[capitalize] text-main'>{introInfo[0].sub_title}</span>
                                 <h2 className='mt-[15px] font-[700] text-[40px] uppercase text-black'>{introInfo[0].title}</h2>
@@ -113,7 +116,7 @@ function Introduction() {
                         </div>
                 
                     </div>
-                    <div className="w-1/2 flex justify-end items-center">
+                    <div ref={ref2} className={`w-1/2 flex justify-end items-center ${view2?"animate-slideInRight":"opacity-0"}`}>
                         <div className="img__introduction">
                             <div className='max-w-full h-[375px] w-[531px] rounded-[10px]  ' style={{backgroundImage: `url(${Image1})`}}>
         

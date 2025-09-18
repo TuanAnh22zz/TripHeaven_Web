@@ -10,14 +10,13 @@ import Footer from '../Components/All/Footer';
 function ListDestinations () {
     return (
         <div className="all">
-            <HeaderTop/>
-            <Header/>
+       
             <Banner
             text1='Điểm đến: Annapurna'
             text2='Trang chủ'
             />
             <Trips/>
-            <Footer/>
+           
         </div>
   
 

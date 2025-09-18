@@ -9,15 +9,14 @@ import Banner from '../Components/All/Banner';
 function Contact() {
     return (
         <div className='all'>
-            <HeaderTop/>
-            <Header/>
+          
             <Banner
                 text1='Liên hệ'
                 text2='Trang chủ'
             />
             <InfoContact/>
             <FormContact/>
-            <Footer/>
+        
         
            
         </div>

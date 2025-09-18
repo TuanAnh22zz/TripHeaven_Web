@@ -14,8 +14,7 @@ import 'swiper/css/navigation';
 function DetailTrip () { 
     return (
         <div className="all">
-            <HeaderTop/>
-            <Header/>
+          
             <Banner
                 text1='Chi tiết chuyến đi'
                 text2='Chuyến đi'
@@ -23,7 +22,7 @@ function DetailTrip () {
             />
             <Overview/>
             <BestTour/>
-            <Footer/>
+          
 
  
         </div>
