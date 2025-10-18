@@ -1,0 +1,176 @@
+import { memo, FC } from 'react';
+
+import LayoutContainer from '../All/LayoutContainer';
+import Button from '../All/Button';
+
+import React, { useRef, useState } from 'react';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination, Navigation } from 'swiper/modules';
+//@ts-ignore
+import ImageBlog1 from '../../assets/images/6-2-342x252.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faCalendarDays, faArrowRight} from '@fortawesome/free-solid-svg-icons';
+import  useAnimationScroll from '../../Hook/Animation/useAnimationScroll'
+
+export interface InfoBlogProps {
+    id: number
+    title: string
+    text: string
+    image: string
+}
+
+const infoBlog: InfoBlogProps[] = [
+    {
+        id: 1,
+        title: '10 Sun Hats For Beach Days, Long',
+        text: 'Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit.',
+        image: ImageBlog1
+
+    },
+    {
+        id: 2,
+        title: '10 Sun Hats For Beach Days, Long',
+        text: 'Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit.',
+        image: ImageBlog1
+    },
+    {
+        id: 3,
+        title: '10 Sun Hats For Beach Days, Long',
+        text: 'Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit.',
+        image: ImageBlog1
+    },
+    {
+        id: 4,
+        title: '10 Sun Hats For Beach Days, Long',
+        text: 'Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit.',
+        image: ImageBlog1
+    },
+    {
+        id: 5,
+        title: '10 Sun Hats For Beach Days, Long',
+        text: 'Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit.',
+        image: ImageBlog1
+    },
+    {
+        id: 6,
+        title: '10 Sun Hats For Beach Days, Long',
+        text: 'Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit.',
+        image: ImageBlog1
+    },
+];
+
+interface RenderInfoBlog {
+    blog: InfoBlogProps
+}
+
+const ItemBlog: FC<RenderInfoBlog>  = ({blog}) => (
+    <div className='border-main p-[20px] border-solid border-[3px] rounded-[20px]'>
+        <img src={blog.image} alt="" className='w-[341px] h-[251px] max-w-full rounded-[20px] mb-[30px]' />
+        <a href="http://" className='text-[24px] font-[700]'>{blog.title}</a>
+        <p className='text-[16px] font-[400] text-[#505050] pt-[10px] pb-[40px]'>{blog.text}</p>
+        <div className='flex items-center justify-start'>
+            <FontAwesomeIcon icon={faCalendarDays} style={{color: '#4CAF50'}} size="lg" className='pr-[5px]'/>
+            <time dateTime='2022-04-10'>10 Tháng Tư, 2022</time>
+        
+        </div>
+
+        <button className="text-white bg-main px-[35px] py-2.5 mt-[20px] relative overflow-hidden font-[700] text-[16px] rounded-lg 
+                after:content-[''] 
+                after:absolute 
+                after:top-0 
+                after:bottom-0 
+                after:left-0 after:w-0 
+                after:bg-secondary
+                after:hover:w-full 
+                after:transition-[width]
+                after: ease-linear
+                duration-1000
+                ">
+                    <a href="http://" className='relative z-10 flex items-center' >
+                       <span>Đọc thêm</span>
+                       <FontAwesomeIcon icon={faArrowRight} className="ml-[10px]" />
+                    </a>
+                
+                </button>
+   
+        </div>
+)
+
+function Blog() {
+    const { ref: ref1, view: view1 } = useAnimationScroll(0.5);
+    const { ref: ref2, view: view2 } = useAnimationScroll(0.5);
+    return (
+            <div className=''>
+            <LayoutContainer className='!px-[0]'>
+                <div ref={ref1} className={`text-center ${view1?"animate-zoomIn":"opacity-0"}`}>
+                    <div className='text-main font-[700] text-[24px] mb-[15px]'>Blog & Tin tức</div>
+                    <div className='text-black mt-[15px] text-[40px] uppercase font-[700]'>Tin tức mới nhất</div>
+                    <p className='mt-[30px] mb-[40px] text-[#505050] px-[300px]'>Khám phá bài viết mới nhất với thông tin nổi bật, các xu hướng mới nhất và nội dung hữu ích để giúp bạn cập nhật và được thông tin tức thời..</p>
+                </div>
+                <div 
+                ref={ref2}
+                className={` 
+                    relative
+                    [&_.swiper-button-prev]:text-main
+                    [&_.swiper-button-next]:text-main
+                
+                    [&_.swiper-pagination-bullet-active]:bg-main
+                    ${view2?"animate-zoomIn":"opacity-0"}
+                    `}
+                   
+                >
+                        <Swiper
+                    slidesPerView={1}
+                    spaceBetween={30}
+                    loop={true}
+                    navigation={true}
+                    modules={[Pagination, Navigation]}
+                    className="mySwiper"
+                >
+                    <SwiperSlide className='px-[80px] py-[50px]'>
+                        <div className='grid grid-cols-3 gap-x-[30px]'>
+                            {infoBlog.filter(item => [1,2,3].includes(item.id)).map((item) => (
+                                    <ItemBlog
+                                        key={item.id}
+                                        blog={item}
+                                    />
+                            ))}
+                            
+                
+                        </div>
+                    </SwiperSlide>
+                    <SwiperSlide className='px-[80px] py-[50px]'>
+                    <div className='grid grid-cols-3 gap-x-[30px]'>
+                        
+                        {infoBlog.filter(item => [4,5,6].includes(item.id)).map((item) => (
+                                <ItemBlog
+                                    key={item.id}
+                                    blog={item}
+                                />
+                        ))}
+                
+                    </div>
+                    </SwiperSlide> 
+                
+                    
+                </Swiper>
+                </div>
+                <div className='flex items-center justify-center '>
+                    <Button>
+                        Xem thêm
+                    </Button>
+                </div>
+                
+        
+        </LayoutContainer>
+
+
+        </div>   
+    );
+}
+
+export default memo(Blog);

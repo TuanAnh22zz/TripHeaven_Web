@@ -29,6 +29,10 @@ export default {
           'from': {transform: 'translateY(100%)', opacity: '0' },
           'to': {transform: 'translateY(0)', opacity: '1' },
         },
+        slideBottom: {
+          'from': {transform: 'translateY(-100%)', opacity: '0' },
+          'to': {transform: 'translateY(0)', opacity: '1' },
+        },
         zoomIn: {
           'from': {transform: 'scale(0.5)', opacity: '0'},
           'to': {transform: 'scale(1)', opacity: '1'},
@@ -45,6 +49,7 @@ export default {
         slideInLeft: 'slideInLeft 1s ease-out forwards',
         slideInRight: 'slideInRight 1s ease-out forwards',
         slideTop: 'slideTop 1s ease-out forwards',
+        slideBottom:'slideBottom 1s ease-out forwards',
         zoomIn: 'zoomIn 1s ease-out forwards',
         appear: 'appear 2s ease-out'
       },
@@ -54,6 +59,8 @@ export default {
       
     },
   },
-  plugins: [],
+  plugins: [
+    
+  ],
 };
 
