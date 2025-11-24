@@ -1,6 +1,6 @@
 import { memo } from "react";
-import LayoutContainer from "../All/LayoutContainer";
-import Button from "../All/Button";
+import LayoutContainer from "../../components/All/LayoutContainer";
+import Button from "../../components/All/Button";
 import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons"
 type AuthFormPage = {

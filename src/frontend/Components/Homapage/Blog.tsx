@@ -1,7 +1,7 @@
 import { memo, FC } from 'react';
 
-import LayoutContainer from '../All/LayoutContainer';
-import Button from '../All/Button';
+import LayoutContainer from '../../components/All/LayoutContainer';
+import Button from '../../components/All/Button';
 
 import React, { useRef, useState } from 'react';
 
@@ -14,7 +14,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import ImageBlog1 from '../../assets/images/6-2-342x252.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faCalendarDays, faArrowRight} from '@fortawesome/free-solid-svg-icons';
-import  useAnimationScroll from '../../Hook/Animation/useAnimationScroll'
+import  useAnimationScroll from '../../hook/Animation/useAnimationScroll'
 
 export interface InfoBlogProps {
     id: number

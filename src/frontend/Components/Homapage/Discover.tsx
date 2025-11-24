@@ -3,7 +3,7 @@ import { memo } from 'react';
 import Image0ffer from "../../assets/images/offer-1-1.png"
 //@ts-ignore
 import DiscoverBackground from '../../assets/images/Untitled-design-e1709281316930.png'
-import LayoutContainer from '../All/LayoutContainer';
+import LayoutContainer from '../../components/All/LayoutContainer';
 
 export interface InfoDiscoverProps {
     sub_title: string

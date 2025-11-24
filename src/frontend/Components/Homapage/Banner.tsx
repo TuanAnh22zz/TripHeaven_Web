@@ -94,11 +94,11 @@ function Banner() {
                         <div className='btn_wrapper'>
                             
                             <Button>
-                                  <a href="">
+                                  
                                     <span>
                                         {bannerInfo[0].buttonText}
                                     </span>
-                                  </a>
+                                 
                             </Button>
                            
                     

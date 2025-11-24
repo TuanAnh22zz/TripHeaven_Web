@@ -7,7 +7,7 @@ import featureLogoImage2 from '../../assets/images/features-1-2.png';
 import featureLogoImage3 from '../../assets/images/features-1-3.png';
 //@ts-ignore
 import featureLogoImage4 from '../../assets/images/features-1-4.png';
-import LayoutContainer from '../All/LayoutContainer';
+import LayoutContainer from '../../components/All/LayoutContainer';
 //@ts-ignore
 import FeatureBackground from '../../assets/images/features.png'
 

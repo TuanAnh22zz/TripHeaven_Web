@@ -1,5 +1,4 @@
 import { type } from "os";
-import { use } from "react";
 import { BelongsTo, Column, DataType, ForeignKey, Table, Model, PrimaryKey } from "sequelize-typescript";
 import { User} from "../UserModel/user.model";
 
@@ -83,15 +82,6 @@ export class Blog extends Model<Blog> {
     })
     published_at: Date;
 
-    @ForeignKey(() => User)
-    @Column({
-        allowNull: false,
-        type: DataType.INTEGER,
-    })
-    author_id: number;
-
-    @BelongsTo(() => User)
-    author: User;
-
+  
     
 }

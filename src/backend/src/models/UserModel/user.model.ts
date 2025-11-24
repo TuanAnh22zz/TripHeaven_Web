@@ -1,11 +1,13 @@
 import { type } from "os";
-import { Column, DataType, HasMany, Table, Model, PrimaryKey } from "sequelize-typescript";
+import { Column, DataType, HasMany, Table, Model, PrimaryKey, AutoIncrement, BeforeValidate } from "sequelize-typescript";
 import {Blog} from '../../models/BlogModel/blog.model';
+import { Booking } from "../BookingModel/booking.model";
+import * as bcrypt from 'bcryptjs'
+
 export enum UserRoles {
     Admin = "Admin",
     Customer = "Customer",
-    Guide = "Guide",
-    Staff = "Staff"
+  
 }
 
 @Table({
@@ -17,11 +19,10 @@ export enum UserRoles {
 
 
 export class User extends Model<User> {
-    
+    @AutoIncrement
     @PrimaryKey
     @Column({
         primaryKey: true,
-        autoIncrement: true,
         type: DataType.INTEGER
     })
     user_id: number;
@@ -44,7 +45,7 @@ export class User extends Model<User> {
         allowNull: false,
         type: DataType.STRING
     })
-    password_hash: string;
+    password: string;
 
     @Column({
         allowNull: true,
@@ -91,6 +92,28 @@ export class User extends Model<User> {
     })
     role: UserRoles;
 
-    @HasMany(() => Blog)
-     blogs: Blog[];
+    @HasMany(() => Booking, { as: 'bookings' }) 
+    bookings: Booking[];
+
+
+     comparePassword(password: string) {
+        const {password: passwordHashed} = this.get({plain: true} )
+        return bcrypt.compareSync(password, passwordHashed)
+    }
+
+    getUserWithoutPassword() {
+        const {password: pwd, ...rest} = this.get({plain: true});
+        return rest;
+    }
+
+    @BeforeValidate
+    static hashPassword(user: User){
+        if(user.isNewRecord){
+            const password = user.get('password')
+            const hashedPassword = bcrypt.hashSync(password, 10)
+
+            user.setDataValue('password', hashedPassword)
+            
+        }
+    }
 }

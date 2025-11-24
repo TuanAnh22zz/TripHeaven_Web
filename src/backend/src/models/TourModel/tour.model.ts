@@ -1,6 +1,8 @@
-import {Table,  Column, Model, DataType, PrimaryKey, AutoIncrement, ForeignKey, BelongsTo, BelongsToMany } from "sequelize-typescript";
+import {Table,  Column, Model, DataType, PrimaryKey, AutoIncrement, ForeignKey, BelongsTo, BelongsToMany, HasMany } from "sequelize-typescript";
 import { Destination } from "./destination.modal";
+import { TourDeparture } from "./tour_departure.model";
 import { TourDestination } from "./tour_destination.modal";
+import { TourImage } from "./tour_image.model";
 import { TourType } from "./tour_types.modal";
 
 export enum TourStatus {
@@ -53,7 +55,13 @@ export enum TourStatus {
       type: DataType.STRING(255),
     })
     journey: string;
-  
+
+    @Column({
+      allowNull: true,
+      type: DataType.STRING(255),
+    })
+    meal: string;
+
   
     @Column({
       allowNull: true,
@@ -107,10 +115,9 @@ export enum TourStatus {
     })
     updated_at: Date;
 
-    //Liên kết với bảng TourType
     @ForeignKey(() => TourType)
     @Column({
-        allowNull: true,
+        allowNull: false,
         type: DataType.INTEGER,
     })
     tour_type_id: number;
@@ -122,7 +129,11 @@ export enum TourStatus {
     @BelongsToMany(() => Destination, () => TourDestination)
     destinations: Destination[];
 
+    @HasMany(() => TourImage, 'tour_id')
+    images: TourImage[];
 
+    @HasMany(() => TourDeparture)
+    departures: TourDeparture[];
 
     
   }

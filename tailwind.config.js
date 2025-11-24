@@ -40,9 +40,13 @@ export default {
         appear: {
           'from': {opacity: '0'},
           'to': {opacity: '1'},
+        },
+        shake: {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '10%, 30%, 50%, 70%, 90%': { transform: 'translateX(-5px)' },
+          '20%, 40%, 60%, 80%': { transform: 'translateX(5px)' },
         }
-        
-      },
+    },
       animation: {
         wave: 'wave 2s linear infinite', 
         spin_slow: 'spin 6s linear infinite', 
@@ -51,7 +55,9 @@ export default {
         slideTop: 'slideTop 1s ease-out forwards',
         slideBottom:'slideBottom 1s ease-out forwards',
         zoomIn: 'zoomIn 1s ease-out forwards',
-        appear: 'appear 2s ease-out'
+        appear: 'appear 2s ease-out',
+        shake: 'shake 0.5s ease-in-out',
+
       },
 
       

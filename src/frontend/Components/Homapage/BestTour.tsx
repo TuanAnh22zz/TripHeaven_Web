@@ -1,6 +1,6 @@
 
 import { memo, FC, JSX } from 'react';
-import LayoutContainer from '../All/LayoutContainer';
+import LayoutContainer from '../../components/All/LayoutContainer';
 //@ts-ignore
 import Background1 from '../../assets/images/Destination/Bg.png'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,12 +9,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import { Autoplay } from "swiper/modules";
-import Button from '../All/Button';
+import Button from '../../components/All/Button';
 //@ts-ignore
 import Destination1 from '../../assets/images/Destination/10-900x490.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faClock, faMap} from '@fortawesome/free-regular-svg-icons'
-import AnimationScroll from '../../Hook/Animation/useAnimationScroll'
+import AnimationScroll from '../../hook/Animation/useAnimationScroll'
 import { Link } from 'react-router-dom';
 
 
@@ -226,7 +226,7 @@ function BestTour () {
 
             <div className='flex items-center justify-center mt-[5px]'>
                 <Button>
-                    <Link to="trips">Xem thêm</Link>
+                   Xem thêm
                 </Button>
             </div>
 

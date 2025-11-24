@@ -1,7 +1,7 @@
-import FormLogin from "./FormLogin";
-import FormSignup from "./FormSignup";
-import FormResetPassword from "./FormResetPassword";
-import useAnimationLogin from "../../Hook/Animation/useAnimationLogin";
+import FormLogin from "../../components/Account/FormLogin";
+import FormSignup from "../../components/Account/FormSignup";
+import FormResetPassword from "../../components/Account/FormResetPassword";
+import useAnimationLogin from "../../hook/Animation/useAnimationLogin";
 
 function AuthPage () {
     const {screen, toggleChange} = useAnimationLogin()

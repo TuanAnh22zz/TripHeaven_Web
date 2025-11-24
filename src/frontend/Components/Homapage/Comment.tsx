@@ -1,12 +1,12 @@
 import { memo } from 'react';
-import LayoutContainer from '../All/LayoutContainer';
+import LayoutContainer from '../../components/All/LayoutContainer';
 import React, { useRef, useState } from 'react';
 //@ts-ignore
 import CommentBackground from '../../assets/images/testimonial-bg-2.jpg'
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import useAnimationScroll from '../../Hook/Animation/useAnimationScroll';
+import useAnimationScroll from '../../hook/Animation/useAnimationScroll';
 
 
 

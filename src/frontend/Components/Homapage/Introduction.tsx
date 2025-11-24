@@ -2,15 +2,15 @@
 import { memo,FC } from 'react';
 //@ts-ignore
 import IntroductionBackground from '../../assets/images/plane2-2zxczxc.png'
-import LayoutContainer from '../All/LayoutContainer';
-import Button from '../All/Button';
+import LayoutContainer from '../../components/All/LayoutContainer';
+import Button from '../../components/All/Button';
 //@ts-ignore
 import Image1 from '../../assets/images/about-1-1.jpg'
 //@ts-ignore
 import Image2 from '../../assets/images/about-1-2.jpg'
 //@ts-ignore
 import Image3 from '../../assets/images/about-1-3.jpg'
-import useAnimationScroll from '../../Hook/Animation/useAnimationScroll';
+import useAnimationScroll from '../../hook/Animation/useAnimationScroll';
 
 export interface InfoIntroProps {
     sub_title: string
@@ -110,11 +110,11 @@ function Introduction() {
                                         </ul>
                                 </div>  
                                 <div className='btn_wrapper'>
-                                    <a href="http://">
+                                   
                                         <Button>
                                              {introInfo[0].buttonText}
                                         </Button>
-                                    </a>
+                                   
                             
                                 </div>
                         </div>

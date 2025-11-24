@@ -1,5 +1,5 @@
 import { memo, FC } from 'react';
-import LayoutContainer from '../All/LayoutContainer';
+import LayoutContainer from '../../components/All/LayoutContainer';
 import React, { useRef, useState } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';

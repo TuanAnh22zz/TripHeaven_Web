@@ -1,16 +1,16 @@
 import { type } from "os";
 import { BelongsTo, Column, DataType, ForeignKey, Table, Model } from "sequelize-typescript";
-import {Blog} from '../../models/BlogModel/blog.model';
-import { Categories } from "./categories.modal";
+import {Blog} from './blog.model';
+import { Categories } from "./categories.model";
+import { Tags } from "./tags.model";
 
 
 @Table({
-    tableName: 'post_categories',
+    tableName: 'post_tags',
     timestamps: false,
 })
 
-export class PostCategories extends Model<PostCategories> {
-    
+export class PostTags extends Model<PostTags> {
     @ForeignKey(() => Blog)
     @Column({
         allowNull: true,
@@ -23,15 +23,15 @@ export class PostCategories extends Model<PostCategories> {
 
 
     
-    @ForeignKey(() => Categories)
+    @ForeignKey(() => Tags)
     @Column({
         allowNull: true,
         type: DataType.INTEGER,
     })
-    category_id: number;  
+    tag_id: number;  
 
-    @BelongsTo (() => Categories)
-    category: Categories;
+    @BelongsTo (() => Tags)
+    tags: Tags;
 
 
-}   
+}

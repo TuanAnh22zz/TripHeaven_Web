@@ -1,10 +1,10 @@
 import { memo, FC } from 'react';
-import LayoutContainer from '../All/LayoutContainer';
+import LayoutContainer from '../../components/All/LayoutContainer';
 //@ts-ignore
 import VideoBackground from '../../assets/images/discount-bg.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPlay} from '@fortawesome/free-solid-svg-icons'
-import { useCountdown } from '../../Hook/All/useCountDown';
+import { useCountdown } from '../../hook/All/useCountDown';
 
 export interface InfoOfferProps {
     sub_title: string
@@ -111,7 +111,7 @@ function Offer () {
                                 </div>
 
                                 <div className='flex items-center justify-center'>
-                                            <a href="http://">
+                                            
                                                
                                              
                                             <button className="text-white bg-secondary px-[35px] py-2.5 w-full relative overflow-hidden font-[700] text-[16px] rounded-lg
@@ -131,7 +131,7 @@ function Offer () {
                                                     </a>
                                                 
                                                 </button>
-                                            </a>
+                                          
                                     
                                 </div>
                             </div>

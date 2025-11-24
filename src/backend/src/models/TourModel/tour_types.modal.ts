@@ -1,4 +1,4 @@
-import {Table,  Column, Model, DataType, PrimaryKey, AutoIncrement, HasMany} from "sequelize-typescript";
+import {Table,  Column, Model, DataType, PrimaryKey, AutoIncrement, HasMany, ForeignKey} from "sequelize-typescript";
 import { Tour } from "./tour.model";
 
   
@@ -13,6 +13,14 @@ import { Tour } from "./tour.model";
       type: DataType.INTEGER,
     })
     tour_type_id: number;
+
+    @ForeignKey(() => Tour) 
+    @Column({
+      allowNull: false, 
+      type: DataType.INTEGER,
+    })
+    tour_id: number;
+  
   
     @Column({
       allowNull: false,
@@ -33,6 +41,12 @@ import { Tour } from "./tour.model";
       type: DataType.STRING
     })
     thumbnail_url: string;
+
+    @Column({
+      allowNull: true,
+      type: DataType.TEXT
+  })
+  description: string;
 
     @HasMany(() => Tour)
     tours: Tour[];

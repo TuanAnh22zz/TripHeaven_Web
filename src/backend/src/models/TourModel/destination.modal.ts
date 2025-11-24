@@ -31,5 +31,12 @@ import {Table,  Column, Model, DataType, PrimaryKey, AutoIncrement} from "sequel
         type: DataType.STRING
     })
     thumbnail_url: string;
+
+      @Column({
+        allowNull: true,
+        type: DataType.TEXT
+    })
+    description: string;
+    
   }
   
